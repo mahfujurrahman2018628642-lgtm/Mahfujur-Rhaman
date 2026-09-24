@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahfujur Rahman | Video Editor & Graphic Designer</title>
+  <meta name="description" content="Portfolio of Mahfujur Rahman, a Video Editor and Graphic Designer focused on learning, practicing, and creating engaging visual work.">
+  <meta property="og:title" content="Mahfujur Rahman | Video Editor & Graphic Designer">
+  <meta property="og:description" content="Portfolio of Mahfujur Rahman, a Video Editor and Graphic Designer focused on learning, practicing, and creating engaging visual work.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts: Inter for English & Hind Siliguri for Bengali -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandLime: '#CBEA30',
+            darkBg: '#0B0F17',
+            cardBg: '#111827',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Hind Siliguri', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Strict font-family constraint: Inter for English, Hind Siliguri for Bengali */
+    *, *::before, *::after {
+      font-family: 'Inter', 'Hind Siliguri', sans-serif !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: #0B0F17;
+      color: #F8FAFC;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      background-color: #0B0F17;
+      color: #F8FAFC;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Light Mode Theme Overrides */
+    html.light {
+      background-color: #F8FAFC !important;
+      color: #0F172A !important;
+    }
+    html.light body {
+      background-color: #F8FAFC !important;
+      color: #0F172A !important;
+    }
+    html.light #main-header {
+      background-color: rgba(255, 255, 255, 0.92) !important;
+      border-color: rgba(203, 234, 48, 0.45) !important;
+      color: #0F172A !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+    html.light #nav-brand-name {
+      color: #0F172A !important;
+    }
+    html.light nav a {
+      color: #334155 !important;
+    }
+    html.light nav a:hover {
+      color: #000000 !important;
+    }
+    html.light .bg-\[\#111827\] {
+      background-color: #FFFFFF !important;
+      color: #0F172A !important;
+    }
+    html.light .bg-\[\#161F33\] {
+      background-color: #F8FAFC !important;
+      color: #0F172A !important;
+    }
+    html.light .bg-\[\#1E293B\] {
+      background-color: #FFFFFF !important;
+      color: #0F172A !important;
+    }
+    html.light .bg-\[\#0B0F17\] {
+      background-color: #F1F5F9 !important;
+      color: #0F172A !important;
+    }
+    html.light .bg-\[\#0F172A\] {
+      background-color: #FFFFFF !important;
+      color: #0F172A !important;
+    }
+    html.light .text-white {
+      color: #0F172A !important;
+    }
+    html.light .text-slate-200,
+    html.light .text-slate-300 {
+      color: #334155 !important;
+    }
+    html.light .text-slate-400 {
+      color: #64748B !important;
+    }
+    html.light footer {
+      background-color: #F1F5F9 !important;
+      border-color: rgba(203, 234, 48, 0.45) !important;
+    }
+    html.light footer .text-white {
+      color: #0F172A !important;
+    }
+    html.light #mobile-nav-panel {
+      background-color: #FFFFFF !important;
+      border-color: rgba(203, 234, 48, 0.45) !important;
+    }
+    html.light #mobile-nav-panel a {
+      color: #334155 !important;
+    }
+    html.light #mobile-nav-panel a:hover {
+      color: #000000 !important;
+    }
+
+    /* Professional Card Bottom Glow Effect strictly with #CBEA30 */
+    .card-bottom-glow {
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
+    }
+
+    .card-bottom-glow::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #CBEA30 50%, transparent);
+      opacity: 0.65;
+      box-shadow: 0 0 14px rgba(203, 234, 48, 0.45);
+      transition: opacity 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
+      pointer-events: none;
+      border-radius: 9999px;
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% {
+        opacity: 0.45;
+        box-shadow: 0 0 10px rgba(203, 234, 48, 0.35);
+      }
+      50% {
+        opacity: 0.85;
+        box-shadow: 0 0 20px rgba(203, 234, 48, 0.7);
+      }
+    }
+
+    .card-bottom-glow::after {
+      animation: gentlePulse 4s ease-in-out infinite;
+    }
+
+    .card-bottom-glow:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px -8px rgba(203, 234, 48, 0.22), 0 0 20px -4px rgba(203, 234, 48, 0.25);
+      border-color: rgba(203, 234, 48, 0.8) !important;
+    }
+
+    .card-bottom-glow:hover::after {
+      opacity: 1;
+      height: 3px;
+      box-shadow: 0 0 22px rgba(203, 234, 48, 0.9), 0 0 8px rgba(203, 234, 48, 0.6);
+    }
+
+    /* Scroll Entrance Animation */
+    .fade-up-init {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-up-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up-init {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .card-bottom-glow,
+      .card-bottom-glow:hover,
+      .card-bottom-glow::after {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body id="app-body" class="bg-[#0B0F17] text-[#F8FAFC] antialiased selection:bg-[#CBEA30]/30 selection:text-[#CBEA30] relative overflow-x-hidden">
+
+  <!-- ========================================================================= -->
+  <!-- BUBBLE CANVASES (Floating Ambient Background + Mouse Following Trail) -->
+  <!-- ========================================================================= -->
+  <canvas id="ambient-bubbles-canvas" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></canvas>
+  <canvas id="cursor-bubbles-canvas" class="fixed inset-0 pointer-events-none z-30" aria-hidden="true"></canvas>
+
+  <!-- ========================================================================= -->
+  <!-- 1. NAVIGATION BAR -->
+  <!-- ========================================================================= -->
+  <header id="main-header" class="sticky top-0 z-40 w-full backdrop-blur-md border-b transition-colors duration-300 bg-[#0B0F17]/90 border-[#CBEA30]/20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      <!-- Left: Name & Role -->
+      <a href="#hero" class="flex flex-col group">
+        <span id="nav-brand-name" class="text-base sm:text-lg font-extrabold tracking-tight text-white group-hover:text-[#CBEA30] transition-colors">
+          MAHFUJUR RAHMAN
+        </span>
+        <span class="text-xs font-semibold text-[#CBEA30]">
+          Video Editor & Graphic Designer
+        </span>
+      </a>
+
+      <!-- Right: Links & UI Controls (Desktop) -->
+      <div class="hidden md:flex items-center gap-5">
+        <nav class="flex items-center gap-6 text-sm font-semibold">
+          <a href="#about" data-i18n="nav.about" class="text-slate-300 hover:text-[#CBEA30] transition-colors">About</a>
+          <a href="#videos" data-i18n="nav.videoWork" class="text-slate-300 hover:text-[#CBEA30] transition-colors">Video Work</a>
+          <a href="#graphics" data-i18n="nav.graphicWork" class="text-slate-300 hover:text-[#CBEA30] transition-colors">Graphic Work</a>
+          <a href="#contact" data-i18n="nav.contact" class="text-slate-300 hover:text-[#CBEA30] transition-colors">Contact</a>
+        </nav>
+
+        <!-- UI Placement: [English / বাংলা]   [Dark/Light Mode Toggle] -->
+        <div class="flex items-center gap-2">
+          <!-- Language Switcher -->
+          <div id="desktop-lang-switcher" class="inline-flex items-center p-0.5 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10">
+            <button
+              type="button"
+              id="lang-btn-en"
+              onclick="setLanguage('en')"
+              class="px-2.5 py-1 text-xs font-bold rounded-lg bg-[#CBEA30] text-[#0B0F17] transition-all cursor-pointer shadow-xs"
+            >
+              English
+            </button>
+            <button
+              type="button"
+              id="lang-btn-bn"
+              onclick="setLanguage('bn')"
+              class="px-2.5 py-1 text-xs font-bold rounded-lg text-slate-300 hover:text-[#CBEA30] transition-all cursor-pointer"
+            >
+              বাংলা
+            </button>
+          </div>
+
+          <!-- Dark/Light Mode Toggle Button -->
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            onclick="toggleTheme()"
+            aria-label="Toggle theme mode"
+            title="Toggle Dark / Light Mode"
+            class="p-2 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10 text-[#CBEA30] flex items-center justify-center cursor-pointer transition-all hover:bg-[#CBEA30]/20"
+          >
+            <!-- Sun icon for Dark Mode -->
+            <svg id="theme-icon-sun" class="w-4 h-4 text-[#CBEA30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <!-- Moon icon for Light Mode -->
+            <svg id="theme-icon-moon" class="w-4 h-4 text-slate-900 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Controls: [English / বাংলা] [Theme Toggle] [Menu Button] -->
+      <div class="flex items-center gap-1.5 md:hidden">
+        <div id="mobile-lang-switcher" class="inline-flex items-center p-0.5 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10">
+          <button
+            type="button"
+            onclick="setLanguage('en')"
+            id="mobile-lang-btn-en"
+            class="px-2 py-1 text-[11px] font-bold rounded-lg bg-[#CBEA30] text-[#0B0F17]"
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            onclick="setLanguage('bn')"
+            id="mobile-lang-btn-bn"
+            class="px-2 py-1 text-[11px] font-bold rounded-lg text-slate-300"
+          >
+            বাংলা
+          </button>
+        </div>
+
+        <button
+          type="button"
+          id="mobile-theme-toggle-btn"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme mode"
+          class="p-2 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10 text-[#CBEA30]"
+        >
+          <svg id="mobile-theme-icon-sun" class="w-4 h-4 text-[#CBEA30]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg id="mobile-theme-icon-moon" class="w-4 h-4 text-slate-900 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          aria-label="Toggle navigation menu"
+          onclick="toggleMobileMenu()"
+          class="p-2 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10 text-[#CBEA30]"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <div id="mobile-nav-panel" class="hidden md:hidden px-4 py-4 border-b border-[#CBEA30]/20 bg-[#0F172A] space-y-3 text-sm font-semibold">
+      <a href="#about" onclick="closeMobileMenu()" data-i18n="nav.about" class="block py-1 text-slate-200 hover:text-[#CBEA30]">About</a>
+      <a href="#videos" onclick="closeMobileMenu()" data-i18n="nav.videoWork" class="block py-1 text-slate-200 hover:text-[#CBEA30]">Video Work</a>
+      <a href="#graphics" onclick="closeMobileMenu()" data-i18n="nav.graphicWork" class="block py-1 text-slate-200 hover:text-[#CBEA30]">Graphic Work</a>
+      <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav.contact" class="block py-1 text-slate-200 hover:text-[#CBEA30]">Contact</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-20">
+
+    <!-- ========================================================================= -->
+    <!-- 2. HERO / INTRODUCTION -->
+    <!-- ========================================================================= -->
+    <section id="hero" class="fade-up-init">
+      <div id="hero-card" class="card-bottom-glow p-6 sm:p-10 rounded-2xl sm:rounded-3xl border-2 border-[#CBEA30]/45 bg-[#111827] shadow-xl">
+        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+          
+          <!-- Profile Picture -->
+          <div class="shrink-0 relative">
+            <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-[#CBEA30]/55 shadow-md bg-slate-900 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(203, 234, 48, 0.25);">
+              <img
+                src="profile.jpg"
+                alt="Mahfujur Rahman"
+                onerror="this.src='https://i.postimg.cc/cJBfHwTn/3707-MAHFUJUR-RAHMAN.jpg'"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <!-- Gentle Accent Badge -->
+            <div class="absolute -bottom-2 -right-2 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#CBEA30] text-[#0B0F17] shadow-md">
+              Portfolio
+            </div>
+          </div>
+
+          <!-- Identity Details & Intro -->
+          <div class="flex-1 text-center md:text-left space-y-4">
+            <div>
+              <span data-i18n="hero.badge" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#CBEA30]/15 text-[#CBEA30] border-2 border-[#CBEA30]/40 mb-2">
+                Creative Portfolio
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white">
+                MAHFUJUR RAHMAN
+              </h1>
+              <p class="text-lg sm:text-xl font-bold text-[#CBEA30] mt-1">
+                Video Editor & Graphic Designer
+              </p>
+            </div>
+
+            <!-- Short Professional Introduction -->
+            <p id="hero-intro-text" data-i18n="hero.shortIntro" class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-2xl">
+              "I’m a passionate Video Editor and Graphic Designer focused on turning ideas into engaging visual experiences. I’m constantly learning, practicing, and exploring new creative techniques to make every project better."
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+              <a
+                href="#featured-work"
+                data-i18n="hero.featuredWorkBtn"
+                class="px-5 py-2.5 rounded-xl text-sm font-bold bg-[#CBEA30] hover:bg-[#d8f53a] text-[#0B0F17] shadow-md transition-all hover:-translate-y-0.5 cursor-pointer"
+                style="box-shadow: 0 4px 16px rgba(203, 234, 48, 0.35);"
+              >
+                Featured Work
+              </a>
+              <a
+                href="mailto:mahfujurrahmansbmc@gmail.com"
+                data-i18n="hero.emailBtn"
+                class="px-5 py-2.5 rounded-xl text-sm font-semibold border-2 border-[#CBEA30]/35 bg-[#1E293B] text-slate-200 hover:text-[#CBEA30] hover:border-[#CBEA30]/70 transition-all hover:-translate-y-0.5 cursor-pointer"
+              >
+                Email
+              </a>
+              <a
+                href="https://wa.me/8801829826160"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="hero.whatsappBtn"
+                class="px-5 py-2.5 rounded-xl text-sm font-semibold border-2 border-[#CBEA30]/35 bg-[#1E293B] text-slate-200 hover:text-[#CBEA30] hover:border-[#CBEA30]/70 transition-all hover:-translate-y-0.5 cursor-pointer"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. FEATURED VIDEO -->
+    <!-- ========================================================================= -->
+    <section id="featured-work" class="fade-up-init space-y-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-2.5 h-6 rounded-full bg-[#CBEA30]"></div>
+        <h2 data-i18n="hero.featuredSectionTitle" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          Featured Work
+        </h2>
+      </div>
+
+      <!-- Responsive 16:9 Video Container -->
+      <div id="featured-video-container" class="card-bottom-glow rounded-2xl sm:rounded-3xl border-2 border-[#CBEA30]/50 bg-black overflow-hidden shadow-xl" style="box-shadow: 0 16px 36px -10px rgba(203, 234, 48, 0.25);">
+        <div class="relative w-full overflow-hidden" style="aspect-ratio: 16 / 9;">
+          <iframe
+            src="https://www.youtube.com/embed/hla0AZEVCkE"
+            title="Featured Work - Mahfujur Rahman"
+            class="w-full h-full border-0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. VIDEO EDITING PORTFOLIO (4 VIDEOS IN 2-COLUMN GRID) -->
+    <!-- ========================================================================= -->
+    <section id="videos" class="fade-up-init space-y-6">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-2.5 h-6 rounded-full bg-[#CBEA30]"></div>
+          <h2 data-i18n="videos.title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            Video Editing Work
+          </h2>
+        </div>
+        <span data-i18n="videos.countBadge" class="px-3 py-1 rounded-full text-xs font-semibold border-2 border-[#CBEA30]/40 bg-[#CBEA30]/15 text-[#CBEA30]">
+          4 Video Projects
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Video 1 -->
+        <div class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
+          <div class="relative w-full overflow-hidden bg-black" style="aspect-ratio: 16 / 9;">
+            <iframe
+              src="https://www.youtube.com/embed/MF9G8jK2sx0"
+              title="Video Editing Work 01"
+              class="w-full h-full border-0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="p-4 sm:p-5 flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">
+              Video Editing Work 01
+            </h3>
+            <a
+              href="https://www.youtube.com/watch?v=MF9G8jK2sx0"
+              target="_blank"
+              rel="noreferrer"
+              class="text-xs font-bold text-[#CBEA30] hover:text-[#d8f53a]"
+            >
+              YouTube →
+            </a>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
+          <div class="relative w-full overflow-hidden bg-black" style="aspect-ratio: 16 / 9;">
+            <iframe
+              src="https://www.youtube.com/embed/TxHoFUIeFPM"
+              title="Video Editing Work 02"
+              class="w-full h-full border-0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="p-4 sm:p-5 flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">
+              Video Editing Work 02
+            </h3>
+            <a
+              href="https://www.youtube.com/watch?v=TxHoFUIeFPM"
+              target="_blank"
+              rel="noreferrer"
+              class="text-xs font-bold text-[#CBEA30] hover:text-[#d8f53a]"
+            >
+              YouTube →
+            </a>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
+          <div class="relative w-full overflow-hidden bg-black" style="aspect-ratio: 16 / 9;">
+            <iframe
+              src="https://www.youtube.com/embed/mK9k2a4x1u0"
+              title="Video Editing Work 03"
+              class="w-full h-full border-0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="p-4 sm:p-5 flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">
+              Video Editing Work 03
+            </h3>
+            <a
+              href="https://www.youtube.com/watch?v=mK9k2a4x1u0"
+              target="_blank"
+              rel="noreferrer"
+              class="text-xs font-bold text-[#CBEA30] hover:text-[#d8f53a]"
+            >
+              YouTube →
+            </a>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
+          <div class="relative w-full overflow-hidden bg-black" style="aspect-ratio: 16 / 9;">
+            <iframe
+              src="https://www.youtube.com/embed/hJ8uXv2oD4M"
+              title="Video Editing Work 04"
+              class="w-full h-full border-0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="p-4 sm:p-5 flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">
+              Video Editing Work 04
+            </h3>
+            <a
+              href="https://www.youtube.com/watch?v=hJ8uXv2oD4M"
+              target="_blank"
+              rel="noreferrer"
+              class="text-xs font-bold text-[#CBEA30] hover:text-[#d8f53a]"
+            >
+              YouTube →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. GRAPHIC & POSTER DESIGNS (6 ITEMS WITH LIGHTBOX) -->
+    <!-- ========================================================================= -->
+    <section id="graphics" class="fade-up-init space-y-6">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-2.5 h-6 rounded-full bg-[#CBEA30]"></div>
+          <h2 data-i18n="graphics.title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            Graphic & Poster Design
+          </h2>
+        </div>
+        <span data-i18n="graphics.countBadge" class="px-3 py-1 rounded-full text-xs font-semibold border-2 border-[#CBEA30]/40 bg-[#CBEA30]/15 text-[#CBEA30]">
+          6 Poster Designs
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Graphic 1 -->
+        <div
+          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          onclick="openLightbox('graphic1.jpg', 'Graphic 01', 'https://i.postimg.cc/pTvS6b9C/graphic1.jpg')"
+        >
+          <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
+            <img
+              src="graphic1.jpg"
+              alt="Graphic 01"
+              onerror="this.src='https://i.postimg.cc/pTvS6b9C/graphic1.jpg'"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <span data-i18n="graphics.clickToExpand" class="text-xs font-semibold text-white flex items-center gap-1">Click to expand</span>
+            </div>
+          </div>
+          <div class="p-4 flex items-center justify-between border-t-2 border-[#CBEA30]/25">
+            <span class="text-sm font-bold text-white group-hover:text-[#CBEA30] transition-colors">Graphic 01</span>
+            <span data-i18n="graphics.viewBtn" class="text-xs font-bold text-[#CBEA30]">View</span>
+          </div>
+        </div>
+
+        <!-- Graphic 2 -->
+        <div
+          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          onclick="openLightbox('graphic2.jpg', 'Graphic 02', 'https://i.postimg.cc/02KmSLZV/graphic5.jpg')"
+        >
+          <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
+            <img
+              src="graphic2.jpg"
+              alt="Graphic 02"
+              onerror="this.src='https://i.postimg.cc/02KmSLZV/graphic5.jpg'"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <span data-i18n="graphics.clickToExpand" class="text-xs font-semibold text-white flex items-center gap-1">Click to expand</span>
+            </div>
+          </div>
+          <div class="p-4 flex items-center justify-between border-t-2 border-[#CBEA30]/25">
+            <span class="text-sm font-bold text-white group-hover:text-[#CBEA30] transition-colors">Graphic 02</span>
+            <span data-i18n="graphics.viewBtn" class="text-xs font-bold text-[#CBEA30]">View</span>
+          </div>
+        </div>
+
+        <!-- Graphic 3 -->
+        <div
+          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          onclick="openLightbox('graphic3.jpg', 'Graphic 03', 'https://i.postimg.cc/mD8z67Xw/graphic3.jpg')"
+        >
+          <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
+            <img
+              src="graphic3.jpg"
+              alt="Graphic 03"
+              onerror="this.src='https://i.postimg.cc/mD8z67Xw/graphic3.jpg'"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <span data-i18n="graphics.clickToExpand" class="text-xs font-semibold text-white flex items-center gap-1">Click to expand</span>
+            </div>
+          </div>
+          <div class="p-4 flex items-center justify-between border-t-2 border-[#CBEA30]/25">
+            <span class="text-sm font-bold text-white group-hover:text-[#CBEA30] transition-colors">Graphic 03</span>
+            <span data-i18n="graphics.viewBtn" class="text-xs font-bold text-[#CBEA30]">View</span>
+          </div>
+        </div>
+
+        <!-- Graphic 4 -->
+        <div
+          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          onclick="openLightbox('graphic4.jpg', 'Graphic 04', 'https://i.postimg.cc/L6gfPrvy/graphic2.jpg')"
+        >
+          <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
+            <img
+              src="graphic4.jpg"
+              alt="Graphic 04"
+              onerror="this.src='https://i.postimg.cc/L6gfPrvy/graphic2.jpg'"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <span data-i18n="graphics.clickToExpand" class="text-xs font-semibold text-white flex items-center gap-1">Click to expand</span>
+            </div>
+          </div>
+          <div class="p-4 flex items-center justify-between border-t-2 border-[#CBEA30]/25">
+            <span class="text-sm font-bold text-white group-hover:text-[#CBEA30] transition-colors">Graphic 04</span>
+            <span data-i18n="graphics.viewBtn" class="text-xs font-bold text-[#CBEA30]">View</span>
+          </div>
+        </div>
+
+        <!-- Graphic 5 -->
+        <div
+          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          onclick="openLightbox('graphic5.jpg', 'Graphic 05', 'https://i.postimg.cc/02KmSLZV/graphic5.jpg')"
+        >
+          <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
+            <img
+              src="graphic5.jpg"
+              alt="Graphic 05"
+              onerror="this.src='https://i.postimg.cc/02KmSLZV/graphic5.jpg'"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <span data-i18n="graphics.clickToExpand" class="text-xs font-semibold text-white flex items-center gap-1">Click to expand</span>
+            </div>
+          </div>
+          <div class="p-4 flex items-center justify-between border-t-2 border-[#CBEA30]/25">
+            <span class="text-sm font-bold text-white group-hover:text-[#CBEA30] transition-colors">Graphic 05</span>
+            <span data-i18n="graphics.viewBtn" class="text-xs font-bold text-[#CBEA30]">View</span>
+          </div>
+        </div>
+
+        <!-- Graphic 6 -->
+        <div
+          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          onclick="openLightbox('graphic6.jpg', 'Graphic 06', 'https://i.postimg.cc/5NQvzZpK/graphic6.jpg')"
+        >
+          <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
+            <img
+              src="graphic6.jpg"
+              alt="Graphic 06"
+              onerror="this.src='https://i.postimg.cc/5NQvzZpK/graphic6.jpg'"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <span data-i18n="graphics.clickToExpand" class="text-xs font-semibold text-white flex items-center gap-1">Click to expand</span>
+            </div>
+          </div>
+          <div class="p-4 flex items-center justify-between border-t-2 border-[#CBEA30]/25">
+            <span class="text-sm font-bold text-white group-hover:text-[#CBEA30] transition-colors">Graphic 06</span>
+            <span data-i18n="graphics.viewBtn" class="text-xs font-bold text-[#CBEA30]">View</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. ABOUT ME (EXACT HONEST BIO) -->
+    <!-- ========================================================================= -->
+    <section id="about" class="fade-up-init space-y-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-2.5 h-6 rounded-full bg-[#CBEA30]"></div>
+        <h2 data-i18n="about.title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          About Me
+        </h2>
+      </div>
+
+      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-2 border-[#CBEA30]/45 bg-[#111827] shadow-xl">
+        <p data-i18n="about.bio" class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+          "I am a passionate Video Editor and Graphic Designer who is dedicated to learning, practicing, and improving every day. Over the past three months, I have been actively developing my skills in video editing while exploring creative design and visual storytelling. I spend time practicing regularly, learning new techniques, and challenging myself to create better and more engaging work. I believe consistent practice, curiosity, and a willingness to learn are essential for creative growth. Although I am still at an early stage of my professional journey, I bring genuine dedication, fresh creativity, and a strong desire to improve with every project. My goal is to continue developing myself as a creative professional and create meaningful visual work that people remember."
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 7. MY CREATIVE JOURNEY -->
+    <!-- ========================================================================= -->
+    <section id="journey" class="fade-up-init space-y-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-2.5 h-6 rounded-full bg-[#CBEA30]"></div>
+        <h2 data-i18n="journey.title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          My Creative Journey
+        </h2>
+      </div>
+
+      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-2 border-[#CBEA30]/45 bg-[#111827] shadow-xl space-y-4">
+        <span data-i18n="journey.badge" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#CBEA30]/15 text-[#CBEA30] border-2 border-[#CBEA30]/40">
+          3-Month Skill Development Journey
+        </span>
+        <p data-i18n="journey.description" class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+          "Over the past three months, I have focused on learning, practicing, and developing my skills in video editing and graphic design. This learning journey has helped me build a stronger understanding of visual communication, creative design, and video content creation. I am continuing to practice and improve through new projects and regular learning."
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 8. GET IN TOUCH / LET'S CONNECT -->
+    <!-- ========================================================================= -->
+    <section id="contact" class="fade-up-init space-y-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-2.5 h-6 rounded-full bg-[#CBEA30]"></div>
+        <h2 data-i18n="contact.title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          Let’s Connect
+        </h2>
+      </div>
+
+      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-2 border-[#CBEA30]/45 bg-[#111827] shadow-xl space-y-6">
+        <p data-i18n="contact.subtitle" class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+          "I’m always interested in learning, creating, and taking on opportunities where I can contribute, grow, and develop my creative skills."
+        </p>
+
+        <!-- Action Buttons for Email, WhatsApp, Facebook, Behance -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+          
+          <!-- Email Button -->
+          <a
+            href="mailto:mahfujurrahmansbmc@gmail.com"
+            class="p-4 rounded-xl border-2 border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
+          >
+            <div>
+              <span data-i18n="contact.emailLabel" class="text-[11px] block font-medium text-slate-400">Email</span>
+              <span class="text-xs sm:text-sm font-semibold text-[#CBEA30] group-hover:underline truncate block">
+                mahfujurrahmansbmc@gmail.com
+              </span>
+            </div>
+            <svg class="w-4 h-4 text-[#CBEA30] shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
+
+          <!-- WhatsApp Button -->
+          <a
+            href="https://wa.me/8801829826160"
+            target="_blank"
+            rel="noreferrer"
+            class="p-4 rounded-xl border-2 border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
+          >
+            <div>
+              <span data-i18n="contact.whatsappLabel" class="text-[11px] block font-medium text-slate-400">WhatsApp</span>
+              <span class="text-xs sm:text-sm font-bold text-white group-hover:text-[#CBEA30] block">
+                01829826160
+              </span>
+            </div>
+            <svg class="w-4 h-4 text-[#CBEA30] shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </a>
+
+          <!-- Facebook Button -->
+          <a
+            href="https://www.facebook.com/share/1FU19i662s/"
+            target="_blank"
+            rel="noreferrer"
+            class="p-4 rounded-xl border-2 border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
+          >
+            <div>
+              <span class="text-[11px] block font-medium text-slate-400">Social</span>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-[#CBEA30] block">
+                Facebook
+              </span>
+            </div>
+            <svg class="w-4 h-4 text-[#CBEA30] shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+
+          <!-- Behance Button -->
+          <a
+            href="https://www.behance.net/mahfujurrahman120"
+            target="_blank"
+            rel="noreferrer"
+            class="p-4 rounded-xl border-2 border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
+          >
+            <div>
+              <span class="text-[11px] block font-medium text-slate-400">Portfolio</span>
+              <span class="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-[#CBEA30] block">
+                Behance
+              </span>
+            </div>
+            <svg class="w-4 h-4 text-[#CBEA30] shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 9. FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="border-t-2 border-[#CBEA30]/30 py-10 px-4 sm:px-6 transition-colors duration-300 bg-[#0B0F17]">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <span class="text-base font-bold text-white block">
+          MAHFUJUR RAHMAN
+        </span>
+        <span class="text-xs text-[#CBEA30] font-semibold">
+          Video Editor & Graphic Designer
+        </span>
+      </div>
+      <p id="footer-rights" class="text-xs text-slate-400">
+        © 2026 Mahfujur Rahman. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 10. VANILLA JAVASCRIPT LIGHTBOX MODAL -->
+  <!-- ========================================================================= -->
+  <div
+    id="image-lightbox"
+    class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+    onclick="handleModalBackdropClick(event)"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image preview"
+  >
+    <div class="relative max-w-4xl max-h-[90vh] flex flex-col items-center">
+      <!-- Close Button -->
+      <button
+        type="button"
+        id="lightbox-close-btn"
+        aria-label="Close image lightbox"
+        onclick="closeLightbox()"
+        class="absolute -top-12 right-0 p-2 rounded-full bg-[#CBEA30] text-[#0B0F17] hover:bg-[#d8f53a] transition-colors cursor-pointer"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Large Image Container -->
+      <img
+        id="lightbox-img"
+        src=""
+        alt="Enlarged graphic design"
+        class="max-w-full max-h-[82vh] rounded-xl object-contain border border-white/20 shadow-2xl"
+      />
+
+      <!-- Caption -->
+      <p id="lightbox-caption" class="text-sm font-semibold text-slate-200 mt-3"></p>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 11. CORE INTERACTION SCRIPTS: BUBBLES, THEME & LANGUAGE -->
+  <!-- ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // THEME STATE & TOGGLING (DARK / LIGHT)
+    // -------------------------------------------------------------------------
+    let currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      localStorage.setItem('portfolio-theme', theme);
+      const isDark = theme === 'dark';
+
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const mobileSunIcon = document.getElementById('mobile-theme-icon-sun');
+      const mobileMoonIcon = document.getElementById('mobile-theme-icon-moon');
+
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+        if (sunIcon) sunIcon.classList.remove('hidden');
+        if (moonIcon) moonIcon.classList.add('hidden');
+        if (mobileSunIcon) mobileSunIcon.classList.remove('hidden');
+        if (mobileMoonIcon) mobileMoonIcon.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        if (sunIcon) sunIcon.classList.add('hidden');
+        if (moonIcon) moonIcon.classList.remove('hidden');
+        if (mobileSunIcon) mobileSunIcon.classList.add('hidden');
+        if (mobileMoonIcon) mobileMoonIcon.classList.remove('hidden');
+      }
+    }
+
+    function toggleTheme() {
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    }
+
+    // Apply saved theme on boot
+    applyTheme(currentTheme);
+
+    // -------------------------------------------------------------------------
+    // LANGUAGE SWITCHING (ENGLISH / বাংলা)
+    // -------------------------------------------------------------------------
+    let currentLang = 'en';
+
+    const I18N_DATA = {
+      en: {
+        'nav.about': 'About',
+        'nav.videoWork': 'Video Work',
+        'nav.graphicWork': 'Graphic Work',
+        'nav.contact': 'Contact',
+        'hero.badge': 'Creative Portfolio',
+        'hero.shortIntro': '“I’m a passionate Video Editor and Graphic Designer focused on turning ideas into engaging visual experiences. I’m constantly learning, practicing, and exploring new creative techniques to make every project better.”',
+        'hero.featuredWorkBtn': 'Featured Work',
+        'hero.emailBtn': 'Email',
+        'hero.whatsappBtn': 'WhatsApp',
+        'hero.featuredSectionTitle': 'Featured Work',
+        'videos.title': 'Video Editing Work',
+        'videos.countBadge': '4 Video Projects',
+        'graphics.title': 'Graphic & Poster Design',
+        'graphics.countBadge': '6 Poster Designs',
+        'graphics.clickToExpand': 'Click to expand',
+        'graphics.viewBtn': 'View',
+        'about.title': 'About Me',
+        'about.bio': '“I am a passionate Video Editor and Graphic Designer who is dedicated to learning, practicing, and improving every day. Over the past three months, I have been actively developing my skills in video editing while exploring creative design and visual storytelling. I spend time practicing regularly, learning new techniques, and challenging myself to create better and more engaging work. I believe consistent practice, curiosity, and a willingness to learn are essential for creative growth. Although I am still at an early stage of my professional journey, I bring genuine dedication, fresh creativity, and a strong desire to improve with every project. My goal is to continue developing myself as a creative professional and create meaningful visual work that people remember.”',
+        'journey.title': 'My Creative Journey',
+        'journey.badge': '3-Month Skill Development Journey',
+        'journey.description': '“Over the past three months, I have focused on learning, practicing, and developing my skills in video editing and graphic design. This learning journey has helped me build a stronger understanding of visual communication, creative design, and video content creation. I am continuing to practice and improve through new projects and regular learning.”',
+        'contact.title': 'Let’s Connect',
+        'contact.subtitle': '“I’m always interested in learning, creating, and taking on opportunities where I can contribute, grow, and develop my creative skills.”',
+        'contact.emailLabel': 'Email',
+        'contact.whatsappLabel': 'WhatsApp',
+      },
+      bn: {
+        'nav.about': 'সম্পর্কে',
+        'nav.videoWork': 'ভিডিও কাজ',
+        'nav.graphicWork': 'গ্রাফিক ডিজাইন',
+        'nav.contact': 'যোগাযোগ',
+        'hero.badge': 'ক্রিয়েটিভ পোর্টফোলিও',
+        'hero.shortIntro': '“আমি একজন উদ্যমী ভিডিও এডিটর ও গ্রাফিক ডিজাইনার, যার লক্ষ্য যেকোনো আইডিয়াকে আকর্ষণীয় ভিজ্যুয়াল অভিজ্ঞতায় রূপ দেওয়া। কাজের মান আরও উন্নত করতে আমি প্রতিনিয়ত নতুন নতুন ক্রিয়েটিভ কৌশল শিখছি এবং নিয়মিত অনুশীলন করছি।”',
+        'hero.featuredWorkBtn': 'সেরা কাজ',
+        'hero.emailBtn': 'ইমেইল',
+        'hero.whatsappBtn': 'WhatsApp',
+        'hero.featuredSectionTitle': 'সেরা কাজ (Featured Work)',
+        'videos.title': 'ভিডিও এডিটিং কাজ',
+        'videos.countBadge': '৪টি ভিডিও প্রজেক্ট',
+        'graphics.title': 'গ্রাফিক ও পোস্টার ডিজাইন',
+        'graphics.countBadge': '৬টি পোস্টার ডিজাইন',
+        'graphics.clickToExpand': 'বড় করে দেখতে ক্লিক করুন',
+        'graphics.viewBtn': 'দেখুন',
+        'about.title': 'আমার সম্পর্কে',
+        'about.bio': '“আমি একজন নিবেদিতপ্রাণ ভিডিও এডিটর এবং গ্রাফিক ডিজাইনার, যিনি প্রতিদিন নতুন কিছু শিখতে, অনুশীলন করতে এবং নিজের দক্ষতাকে উন্নত করতে প্রতিশ্রুতিবদ্ধ। গত তিন মাস ধরে আমি ভিডিও এডিটিংয়ে নিজের দক্ষতা বাড়াতে এবং পাশাপাশি ক্রিয়েটিভ ডিজাইন ও ভিজ্যুয়াল স্টোরিটেলিং নিয়ে গভীরভাবে কাজ করছি। আমি নিয়মিত অনুশীলন করি, নতুন কৌশল শিখি এবং প্রতিটি কাজে আরও ভালো ও আকর্ষণীয় কিছু তৈরি করার চ্যালেঞ্জ গ্রহণ করি। আমি বিশ্বাস করি সৃজনশীল বিকাশের জন্য ধারাবাহিক অনুশীলন, কৌতূহল এবং শেখার আগ্রহ অত্যন্ত জরুরি। পেশাগত যাত্রার প্রাথমিক পর্যায়ে থাকলেও, আমি প্রতিটি প্রজেক্টে খাঁটি নিষ্ঠা, সতেজ সৃজনশীলতা এবং উন্নতির তীব্র আকাঙ্ক্ষা নিয়ে কাজ করি। আমার লক্ষ্য একজন ক্রিয়েটিভ প্রফেশনাল হিসেবে নিজেকে প্রতিষ্ঠিত করা এবং এমন অর্থপূর্ণ কাজ তৈরি করা যা মানুষ মনে রাখবে।”',
+        'journey.title': 'আমার সৃজনশীল জার্নি',
+        'journey.badge': '৩ মাসের স্কিল ডেভেলপমেন্ট জার্নি',
+        'journey.description': '“গত তিন মাস ধরে আমি ভিডিও এডিটিং এবং গ্রাফিক ডিজাইনে আমার দক্ষতা শেখা, অনুশীলন এবং বিকাশের ওপর গুরুত্ব দিয়েছি। এই শেখার জার্নি আমাকে ভিজ্যুয়াল কমিউনিকেশন, ক্রিয়েটিভ ডিজাইন এবং ভিডিও কন্টেন্ট তৈরির বিষয়ে আরও গভীর ধারণা তৈরি করতে সাহায্য করেছে। নতুন নতুন প্রজেক্ট এবং নিয়মিত শেখার মাধ্যমে আমি প্রতিনিয়ত নিজেকে উন্নত করছি।”',
+        'contact.title': 'চলুন যুক্ত হই',
+        'contact.subtitle': '“আমি ইন্টার্নশিপের সুযোগ, এন্ট্রি-লেভেল কাজ এবং ক্রিয়েটিভ কোলাবোরেশনের জন্য আগ্রহী। যেকোনো সময় যোগাযোগ করতে পারেন।”',
+        'contact.emailLabel': 'ইমেইল',
+        'contact.whatsappLabel': 'WhatsApp',
+      }
+    };
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      const dict = I18N_DATA[lang];
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // Update button highlights
+      const enBtn = document.getElementById('lang-btn-en');
+      const bnBtn = document.getElementById('lang-btn-bn');
+      const mobEnBtn = document.getElementById('mobile-lang-btn-en');
+      const mobBnBtn = document.getElementById('mobile-lang-btn-bn');
+
+      if (lang === 'en') {
+        if (enBtn) {
+          enBtn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg bg-[#CBEA30] text-[#0B0F17] transition-all cursor-pointer shadow-xs';
+          bnBtn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg text-slate-300 hover:text-[#CBEA30] transition-all cursor-pointer';
+        }
+        if (mobEnBtn) {
+          mobEnBtn.className = 'px-2 py-1 text-[11px] font-bold rounded-lg bg-[#CBEA30] text-[#0B0F17]';
+          mobBnBtn.className = 'px-2 py-1 text-[11px] font-bold rounded-lg text-slate-300';
+        }
+      } else {
+        if (enBtn) {
+          enBtn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg text-slate-300 hover:text-[#CBEA30] transition-all cursor-pointer';
+          bnBtn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg bg-[#CBEA30] text-[#0B0F17] transition-all cursor-pointer shadow-xs';
+        }
+        if (mobEnBtn) {
+          mobEnBtn.className = 'px-2 py-1 text-[11px] font-bold rounded-lg text-slate-300';
+          mobBnBtn.className = 'px-2 py-1 text-[11px] font-bold rounded-lg bg-[#CBEA30] text-[#0B0F17]';
+        }
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // BUBBLE EFFECTS: Canvas-based floating ambient bubbles + cursor trail
+    // -------------------------------------------------------------------------
+    (function initBubbles() {
+      const bgCanvas = document.getElementById('ambient-bubbles-canvas');
+      const cursorCanvas = document.getElementById('cursor-bubbles-canvas');
+      if (!bgCanvas || !cursorCanvas) return;
+
+      const bgCtx = bgCanvas.getContext('2d');
+      const cursorCtx = cursorCanvas.getContext('2d');
+      if (!bgCtx || !cursorCtx) return;
+
+      // Respect prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      let width = (bgCanvas.width = cursorCanvas.width = window.innerWidth);
+      let height = (bgCanvas.height = cursorCanvas.height = window.innerHeight);
+
+      const ACCENT = '203, 234, 48';
+
+      const ambientBubbles = [];
+      let nextAmbientSpawnTime = performance.now() + 800;
+
+      function spawnAmbientBubble(now, isInitial) {
+        const radius = Math.random() * 8 + 14;
+        const maxLife = Math.floor(Math.random() * 200 + 400);
+        const fadeInDuration = 70;
+        const fadeOutDuration = 90;
+
+        const startY = isInitial
+          ? height * (0.45 + Math.random() * 0.45)
+          : height + radius + Math.random() * 15;
+        const startX = Math.random() * (width - 100) + 50;
+
+        ambientBubbles.push({
+          x: startX,
+          y: startY,
+          radius: radius,
+          maxRadius: radius,
+          color: ACCENT,
+          speedY: -(Math.random() * 0.32 + 0.22),
+          speedX: (Math.random() - 0.5) * 0.2,
+          wobbleAngle: Math.random() * Math.PI * 2,
+          wobbleSpeed: Math.random() * 0.015 + 0.006,
+          life: 0,
+          maxLife: maxLife,
+          fadeInDuration: fadeInDuration,
+          fadeOutDuration: fadeOutDuration,
+          targetOpacity: Math.random() * 0.05 + 0.09,
+        });
+
+        nextAmbientSpawnTime = now + (Math.random() * 2000 + 1800);
+      }
+
+      const cursorBubbles = [];
+      const supportsFinePointer = window.matchMedia('(pointer: fine)').matches && !('ontouchstart' in window && window.innerWidth < 1024);
+
+      let lastX = -999, lastY = -999;
+      let lastSpawn = 0;
+
+      if (supportsFinePointer) {
+        window.addEventListener('mousemove', (e) => {
+          const now = performance.now();
+          const dx = e.clientX - lastX;
+          const dy = e.clientY - lastY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist > 18 && now - lastSpawn > 45) {
+            const spawnCount = dist > 90 ? 2 : 1;
+            for (let i = 0; i < spawnCount; i++) {
+              const radius = Math.random() * 4 + 5.5;
+              const maxLife = Math.floor(Math.random() * 30 + 55);
+              const angle = Math.random() * Math.PI * 2;
+              const speed = Math.random() * 0.85 + 0.25;
+
+              cursorBubbles.push({
+                x: e.clientX + (Math.random() - 0.5) * 12,
+                y: e.clientY + (Math.random() - 0.5) * 12,
+                vx: Math.cos(angle) * speed - dx * 0.04,
+                vy: Math.sin(angle) * speed - dy * 0.04,
+                radius: radius,
+                maxRadius: radius,
+                life: maxLife,
+                maxLife: maxLife,
+                baseOpacity: Math.random() * 0.25 + 0.45,
+                wobbleAngle: Math.random() * Math.PI * 2,
+                wobbleSpeed: Math.random() * 0.06 + 0.03,
+                color: ACCENT,
+              });
+            }
+            lastX = e.clientX;
+            lastY = e.clientY;
+            lastSpawn = now;
+          }
+        }, { passive: true });
+      }
+
+      window.addEventListener('resize', () => {
+        width = bgCanvas.width = cursorCanvas.width = window.innerWidth;
+        height = bgCanvas.height = cursorCanvas.height = window.innerHeight;
+      });
+
+      spawnAmbientBubble(performance.now(), true);
+
+      function loop(now) {
+        bgCtx.clearRect(0, 0, width, height);
+        cursorCtx.clearRect(0, 0, width, height);
+
+        const isLight = document.documentElement.classList.contains('light');
+
+        if (ambientBubbles.length < 3 && now >= nextAmbientSpawnTime && ambientBubbles.length < 5) {
+          spawnAmbientBubble(now, false);
+        }
+
+        for (let i = ambientBubbles.length - 1; i >= 0; i--) {
+          const b = ambientBubbles[i];
+          b.life++;
+          b.wobbleAngle += b.wobbleSpeed;
+          b.x += b.speedX + Math.sin(b.wobbleAngle) * 0.35;
+          b.y += b.speedY;
+
+          let opacity = 0;
+          if (b.life < b.fadeInDuration) {
+            opacity = b.targetOpacity * (b.life / b.fadeInDuration);
+          } else if (b.life > b.maxLife - b.fadeOutDuration) {
+            const rem = b.maxLife - b.life;
+            opacity = b.targetOpacity * Math.max(0, rem / b.fadeOutDuration);
+          } else {
+            opacity = b.targetOpacity;
+          }
+
+          let currentRadius = b.radius;
+          if (b.life > b.maxLife - b.fadeOutDuration) {
+            const rem = b.maxLife - b.life;
+            currentRadius = b.radius * (0.85 + 0.15 * (rem / b.fadeOutDuration));
+          }
+
+          if (b.life >= b.maxLife || b.y + currentRadius < -20 || opacity <= 0) {
+            ambientBubbles.splice(i, 1);
+            continue;
+          }
+
+          bgCtx.save();
+          bgCtx.beginPath();
+          bgCtx.arc(b.x, b.y, currentRadius, 0, Math.PI * 2);
+          bgCtx.fillStyle = isLight ? `rgba(${b.color}, ${opacity * 0.45})` : `rgba(${b.color}, ${opacity * 0.35})`;
+          bgCtx.fill();
+          bgCtx.lineWidth = 1.2;
+          bgCtx.strokeStyle = isLight ? `rgba(140, 175, 15, ${opacity * 1.1})` : `rgba(${b.color}, ${opacity * 0.8})`;
+          bgCtx.stroke();
+
+          bgCtx.beginPath();
+          bgCtx.arc(b.x - currentRadius * 0.3, b.y - currentRadius * 0.3, currentRadius * 0.2, 0, Math.PI * 2);
+          bgCtx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.6})`;
+          bgCtx.fill();
+          bgCtx.restore();
+        }
+
+        for (let i = cursorBubbles.length - 1; i >= 0; i--) {
+          const cb = cursorBubbles[i];
+          cb.life--;
+          cb.wobbleAngle += cb.wobbleSpeed;
+          cb.vx *= 0.96;
+          cb.vy *= 0.96;
+          cb.vy -= 0.02;
+          cb.x += cb.vx + Math.sin(cb.wobbleAngle) * 0.18;
+          cb.y += cb.vy;
+
+          const progress = cb.life / cb.maxLife;
+          if (cb.life <= 0 || progress <= 0) {
+            cursorBubbles.splice(i, 1);
+            continue;
+          }
+
+          const fadeFactor = progress > 0.65 ? 1 : Math.pow(progress / 0.65, 0.85);
+          const currentOpacity = cb.baseOpacity * fadeFactor;
+          const currentRadius = Math.max(1.2, cb.maxRadius * (0.3 + 0.7 * Math.pow(progress, 0.75)));
+
+          if (currentOpacity <= 0.01) {
+            cursorBubbles.splice(i, 1);
+            continue;
+          }
+
+          cursorCtx.save();
+          cursorCtx.beginPath();
+          cursorCtx.arc(cb.x, cb.y, currentRadius, 0, Math.PI * 2);
+          cursorCtx.fillStyle = isLight ? `rgba(${cb.color}, ${currentOpacity * 0.55})` : `rgba(${cb.color}, ${currentOpacity * 0.45})`;
+          cursorCtx.fill();
+          cursorCtx.lineWidth = 1.2;
+          cursorCtx.strokeStyle = isLight ? `rgba(135, 170, 10, ${currentOpacity * 0.95})` : `rgba(${cb.color}, ${currentOpacity * 0.88})`;
+          cursorCtx.stroke();
+
+          if (currentRadius > 3.0) {
+            cursorCtx.beginPath();
+            cursorCtx.arc(cb.x - currentRadius * 0.3, cb.y - currentRadius * 0.3, currentRadius * 0.22, 0, Math.PI * 2);
+            cursorCtx.fillStyle = `rgba(255, 255, 255, ${currentOpacity * 0.8})`;
+            cursorCtx.fill();
+          }
+          cursorCtx.restore();
+        }
+
+        requestAnimationFrame(loop);
+      }
+
+      requestAnimationFrame(loop);
+    })();
+
+    // Mobile Navigation Toggle
+    function toggleMobileMenu() {
+      const panel = document.getElementById('mobile-nav-panel');
+      panel.classList.toggle('hidden');
+    }
+
+    function closeMobileMenu() {
+      const panel = document.getElementById('mobile-nav-panel');
+      panel.classList.add('hidden');
+    }
+
+    // Lightbox Functionality
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    function openLightbox(src, title, fallbackSrc) {
+      lightboxImg.src = src;
+      lightboxImg.onerror = function() {
+        if (fallbackSrc) this.src = fallbackSrc;
+      };
+      lightboxCaption.textContent = title;
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    function handleModalBackdropClick(event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+
+    // IntersectionObserver for Smooth Entrance Animations
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-up-active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px',
+      });
+
+      document.querySelectorAll('.fade-up-init').forEach((el) => {
+        observer.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.fade-up-init').forEach((el) => {
+        el.classList.add('fade-up-active');
+      });
+    }
+  </script>
+</body>
+</html>

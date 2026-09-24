@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@theme {
+  --font-sans: 'Inter', 'Hind Siliguri', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', 'Hind Siliguri', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark,
+  html.dark body {
+    background-color: #0B0F17;
+    color: #F8FAFC;
+  }
+
+  html.light,
+  html.light body,
+  html:not(.dark),
+  html:not(.dark) body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Inter', 'Hind Siliguri', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Bengali/Bangla text renders in Hind Siliguri while English text remains in Inter */
+  *, *::before, *::after {
+    font-family: 'Inter', 'Hind Siliguri', sans-serif;
+  }
+}
+
+/* Portfolio Accent Color:
+   Signature Electric Lime: #CBEA30 (RGB: 203, 234, 48)
+   Dark Base: #0B0F17
+   Dark Surface / Card: #111827
+   Light Base: #F8FAFC
+   Light Surface / Card: #FFFFFF
+*/
+:root {
+  --color-brand-primary: #CBEA30;
+  --color-brand-rgb: 203, 234, 48;
+  --color-brand-dark: #0B0F17;
+  --color-brand-card: #111827;
+  --color-brand-light: #F8FAFC;
+  --color-brand-card-light: #FFFFFF;
+}
+
+/* Card bottom glow styling strictly using #CBEA30 */
+.card-bottom-glow {
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
+}
+
+.card-bottom-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #CBEA30 50%, transparent);
+  opacity: 0.65;
+  box-shadow: 0 0 14px rgba(203, 234, 48, 0.45);
+  transition: opacity 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: none;
+  border-radius: 9999px;
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    opacity: 0.45;
+    box-shadow: 0 0 10px rgba(203, 234, 48, 0.35);
+  }
+  50% {
+    opacity: 0.85;
+    box-shadow: 0 0 20px rgba(203, 234, 48, 0.7);
+  }
+}
+
+.card-bottom-glow::after {
+  animation: gentlePulse 4s ease-in-out infinite;
+}
+
+.card-bottom-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px -8px rgba(203, 234, 48, 0.25), 0 0 20px -4px rgba(203, 234, 48, 0.3);
+  border-color: rgba(203, 234, 48, 0.8) !important;
+}
+
+.card-bottom-glow:hover::after {
+  opacity: 1;
+  height: 3px;
+  box-shadow: 0 0 22px rgba(203, 234, 48, 0.9), 0 0 8px rgba(203, 234, 48, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-bottom-glow,
+  .card-bottom-glow:hover,
+  .card-bottom-glow::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
