@@ -49,7 +49,7 @@ export function ContactSection({ theme, language: _language, t }: ContactSection
 
       <div
         id="contact-main-card"
-        className={`card-bottom-glow p-6 sm:p-10 rounded-2xl border-2 transition-all duration-300 shadow-xl ${
+        className={`card-bottom-glow p-6 sm:p-10 rounded-2xl border-[3px] transition-all duration-300 shadow-xl ${
           isDark ? 'bg-[#111827]' : 'bg-white shadow-md'
         }`}
         style={{
@@ -78,7 +78,7 @@ export function ContactSection({ theme, language: _language, t }: ContactSection
             <div className="space-y-3">
               {/* Email */}
               <div
-                className={`p-3.5 rounded-xl border-2 flex items-center justify-between gap-3 transition-colors ${
+                className={`p-3.5 rounded-xl border-[2.5px] flex items-center justify-between gap-3 transition-colors ${
                   isDark ? 'bg-[#161F33]' : 'bg-slate-50'
                 }`}
                 style={{
@@ -138,7 +138,7 @@ export function ContactSection({ theme, language: _language, t }: ContactSection
                 href={USER_INFO.whatsappLink}
                 target="_blank"
                 rel="noreferrer"
-                className={`p-3.5 rounded-xl border-2 flex items-center justify-between gap-3 transition-all ${
+                className={`p-3.5 rounded-xl border-[2.5px] flex items-center justify-between gap-3 transition-all ${
                   isDark
                     ? 'bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B]'
                     : 'bg-slate-50 hover:border-[#CBEA30] hover:bg-slate-100 shadow-2xs'
@@ -173,7 +173,7 @@ export function ContactSection({ theme, language: _language, t }: ContactSection
                   href={USER_INFO.facebook}
                   target="_blank"
                   rel="noreferrer"
-                  className={`p-3 rounded-xl border-2 flex items-center justify-between transition-all ${
+                  className={`p-3 rounded-xl border-[2.5px] flex items-center justify-between transition-all ${
                     isDark
                       ? 'bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B]'
                       : 'bg-slate-50 hover:border-[#CBEA30] hover:bg-slate-100 shadow-2xs'
@@ -194,7 +194,7 @@ export function ContactSection({ theme, language: _language, t }: ContactSection
                   href={USER_INFO.behance}
                   target="_blank"
                   rel="noreferrer"
-                  className={`p-3 rounded-xl border-2 flex items-center justify-between transition-all ${
+                  className={`p-3 rounded-xl border-[2.5px] flex items-center justify-between transition-all ${
                     isDark
                       ? 'bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B]'
                       : 'bg-slate-50 hover:border-[#CBEA30] hover:bg-slate-100 shadow-2xs'

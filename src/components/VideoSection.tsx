@@ -61,7 +61,7 @@ export function VideoSection({ theme, language: _language, t }: VideoSectionProp
             <div
               key={video.id}
               id={`video-card-${video.id}`}
-              className={`card-bottom-glow group rounded-2xl overflow-hidden border-2 transition-all duration-300 flex flex-col ${
+              className={`card-bottom-glow group rounded-2xl overflow-hidden border-[3px] transition-all duration-300 flex flex-col ${
                 isDark ? 'bg-[#111827]' : 'bg-white shadow-md'
               }`}
               style={{

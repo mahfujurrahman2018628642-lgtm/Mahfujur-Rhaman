@@ -77,7 +77,7 @@ export function GraphicSection({ theme, language: _language, t }: GraphicSection
             key={item.id}
             id={`graphic-card-${item.id}`}
             onClick={() => handleOpenLightbox(index)}
-            className={`card-bottom-glow group relative rounded-2xl overflow-hidden border-2 cursor-pointer transition-all duration-300 flex flex-col ${
+            className={`card-bottom-glow group relative rounded-2xl overflow-hidden border-[3px] cursor-pointer transition-all duration-300 flex flex-col ${
               isDark ? 'bg-[#111827]' : 'bg-white shadow-md'
             }`}
             style={{

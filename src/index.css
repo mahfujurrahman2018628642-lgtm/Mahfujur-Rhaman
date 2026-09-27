@@ -56,58 +56,20 @@
   --color-brand-card-light: #FFFFFF;
 }
 
-/* Card bottom glow styling strictly using #CBEA30 */
+/* Card styling strictly using #CBEA30 */
 .card-bottom-glow {
   position: relative;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
-}
-
-.card-bottom-glow::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #CBEA30 50%, transparent);
-  opacity: 0.65;
-  box-shadow: 0 0 14px rgba(203, 234, 48, 0.45);
-  transition: opacity 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
-  pointer-events: none;
-  border-radius: 9999px;
-}
-
-@keyframes gentlePulse {
-  0%, 100% {
-    opacity: 0.45;
-    box-shadow: 0 0 10px rgba(203, 234, 48, 0.35);
-  }
-  50% {
-    opacity: 0.85;
-    box-shadow: 0 0 20px rgba(203, 234, 48, 0.7);
-  }
-}
-
-.card-bottom-glow::after {
-  animation: gentlePulse 4s ease-in-out infinite;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
 }
 
 .card-bottom-glow:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 28px -8px rgba(203, 234, 48, 0.25), 0 0 20px -4px rgba(203, 234, 48, 0.3);
-  border-color: rgba(203, 234, 48, 0.8) !important;
-}
-
-.card-bottom-glow:hover::after {
-  opacity: 1;
-  height: 3px;
-  box-shadow: 0 0 22px rgba(203, 234, 48, 0.9), 0 0 8px rgba(203, 234, 48, 0.6);
+  border-color: rgba(203, 234, 48, 0.85) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .card-bottom-glow,
-  .card-bottom-glow:hover,
-  .card-bottom-glow::after {
+  .card-bottom-glow:hover {
     animation: none !important;
     transition: none !important;
     transform: none !important;

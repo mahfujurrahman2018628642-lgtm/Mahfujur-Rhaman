@@ -29,7 +29,7 @@ export function AboutSection({ theme, language: _language, aboutT, journeyT }: A
         {/* Main About Card */}
         <div
           id="about-me-card"
-          className={`card-bottom-glow p-6 sm:p-8 rounded-2xl border-2 transition-all duration-300 shadow-xl ${
+          className={`card-bottom-glow p-6 sm:p-8 rounded-2xl border-[3px] transition-all duration-300 shadow-xl ${
             isDark ? 'bg-[#111827]' : 'bg-white shadow-md'
           }`}
           style={{
@@ -86,14 +86,14 @@ export function AboutSection({ theme, language: _language, aboutT, journeyT }: A
             <div
               key={stage.month}
               id={`journey-card-month-${idx + 1}`}
-              className={`card-bottom-glow p-6 rounded-2xl border-2 transition-all duration-300 flex flex-col justify-between ${
+              className={`card-bottom-glow p-6 rounded-2xl border-[3px] transition-all duration-300 flex flex-col justify-between ${
                 isDark ? 'bg-[#111827]' : 'bg-white shadow-md'
               }`}
               style={{
                 borderColor: isDark ? 'rgba(203, 234, 48, 0.45)' : 'rgba(203, 234, 48, 0.65)',
                 boxShadow: isDark
-                  ? '0 8px 24px -6px rgba(203, 234, 48, 0.2), 0 2px 8px rgba(0, 0, 0, 0.5)'
-                  : '0 8px 24px -6px rgba(160, 195, 20, 0.22), 0 2px 8px rgba(0, 0, 0, 0.06)',
+                  ? '0 6px 20px -4px rgba(203, 234, 48, 0.18), 0 2px 6px rgba(0, 0, 0, 0.4)'
+                  : '0 6px 20px -4px rgba(160, 195, 20, 0.18), 0 2px 6px rgba(0, 0, 0, 0.05)',
               }}
             >
               <div className="space-y-4">

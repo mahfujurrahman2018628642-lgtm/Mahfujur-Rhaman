@@ -125,52 +125,15 @@
       color: #000000 !important;
     }
 
-    /* Professional Card Bottom Glow Effect strictly with #CBEA30 */
+    /* Professional Card styling strictly with #CBEA30 */
     .card-bottom-glow {
       position: relative;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
-    }
-
-    .card-bottom-glow::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 10%;
-      right: 10%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #CBEA30 50%, transparent);
-      opacity: 0.65;
-      box-shadow: 0 0 14px rgba(203, 234, 48, 0.45);
-      transition: opacity 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
-      pointer-events: none;
-      border-radius: 9999px;
-    }
-
-    @keyframes gentlePulse {
-      0%, 100% {
-        opacity: 0.45;
-        box-shadow: 0 0 10px rgba(203, 234, 48, 0.35);
-      }
-      50% {
-        opacity: 0.85;
-        box-shadow: 0 0 20px rgba(203, 234, 48, 0.7);
-      }
-    }
-
-    .card-bottom-glow::after {
-      animation: gentlePulse 4s ease-in-out infinite;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
     }
 
     .card-bottom-glow:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 28px -8px rgba(203, 234, 48, 0.22), 0 0 20px -4px rgba(203, 234, 48, 0.25);
-      border-color: rgba(203, 234, 48, 0.8) !important;
-    }
-
-    .card-bottom-glow:hover::after {
-      opacity: 1;
-      height: 3px;
-      box-shadow: 0 0 22px rgba(203, 234, 48, 0.9), 0 0 8px rgba(203, 234, 48, 0.6);
+      border-color: rgba(203, 234, 48, 0.85) !important;
     }
 
     /* Scroll Entrance Animation */
@@ -192,8 +155,7 @@
         transition: none;
       }
       .card-bottom-glow,
-      .card-bottom-glow:hover,
-      .card-bottom-glow::after {
+      .card-bottom-glow:hover {
         animation: none !important;
         transition: none !important;
         transform: none !important;
@@ -207,10 +169,9 @@
 <body id="app-body" class="bg-[#0B0F17] text-[#F8FAFC] antialiased selection:bg-[#CBEA30]/30 selection:text-[#CBEA30] relative overflow-x-hidden">
 
   <!-- ========================================================================= -->
-  <!-- BUBBLE CANVASES (Floating Ambient Background + Mouse Following Trail) -->
+  <!-- BUBBLE CANVAS (Floating Ambient Background) -->
   <!-- ========================================================================= -->
   <canvas id="ambient-bubbles-canvas" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></canvas>
-  <canvas id="cursor-bubbles-canvas" class="fixed inset-0 pointer-events-none z-30" aria-hidden="true"></canvas>
 
   <!-- ========================================================================= -->
   <!-- 1. NAVIGATION BAR -->
@@ -258,6 +219,22 @@
             </button>
           </div>
 
+          <!-- Cursor Effect Toggle Button -->
+          <button
+            type="button"
+            id="cursor-effect-toggle-btn"
+            onclick="toggleCursorEffect()"
+            aria-label="Toggle custom cursor effect"
+            title="Cursor Ring Effect: ON (Click to turn OFF)"
+            class="px-2.5 py-1.5 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10 text-[#CBEA30] flex items-center gap-1.5 cursor-pointer transition-all select-none hover:bg-[#CBEA30]/20"
+          >
+            <svg id="cursor-toggle-icon" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8.5" stroke="#CBEA30" stroke-width="2" />
+              <circle cx="12" cy="12" r="2.5" fill="#CBEA30" />
+            </svg>
+            <span id="cursor-toggle-text" class="text-xs font-bold text-[#CBEA30]">Cursor ON</span>
+          </button>
+
           <!-- Dark/Light Mode Toggle Button -->
           <button
             type="button"
@@ -299,6 +276,21 @@
             বাংলা
           </button>
         </div>
+
+        <!-- Mobile Cursor Effect Toggle -->
+        <button
+          type="button"
+          id="mobile-cursor-effect-toggle-btn"
+          onclick="toggleCursorEffect()"
+          aria-label="Toggle custom cursor effect"
+          title="Cursor Ring Effect: ON"
+          class="p-2 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10 text-[#CBEA30] flex items-center justify-center cursor-pointer"
+        >
+          <svg id="mobile-cursor-toggle-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="8.5" stroke="#CBEA30" stroke-width="2" />
+            <circle cx="12" cy="12" r="2.5" fill="#CBEA30" />
+          </svg>
+        </button>
 
         <button
           type="button"
@@ -344,12 +336,12 @@
     <!-- 2. HERO / INTRODUCTION -->
     <!-- ========================================================================= -->
     <section id="hero" class="fade-up-init">
-      <div id="hero-card" class="card-bottom-glow p-6 sm:p-10 rounded-2xl sm:rounded-3xl border-2 border-[#CBEA30]/45 bg-[#111827] shadow-xl">
+      <div id="hero-card" class="card-bottom-glow p-6 sm:p-10 rounded-2xl sm:rounded-3xl border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-xl">
         <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
           
           <!-- Profile Picture -->
           <div class="shrink-0 relative">
-            <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-[#CBEA30]/55 shadow-md bg-slate-900 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(203, 234, 48, 0.25);">
+            <div class="card-bottom-glow w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/55 shadow-md bg-slate-900 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(203, 234, 48, 0.25);">
               <img
                 src="profile.jpg"
                 alt="Mahfujur Rahman"
@@ -427,7 +419,7 @@
       </div>
 
       <!-- Responsive 16:9 Video Container -->
-      <div id="featured-video-container" class="card-bottom-glow rounded-2xl sm:rounded-3xl border-2 border-[#CBEA30]/50 bg-black overflow-hidden shadow-xl" style="box-shadow: 0 16px 36px -10px rgba(203, 234, 48, 0.25);">
+      <div id="featured-video-container" class="card-bottom-glow rounded-2xl sm:rounded-3xl border-[3px] border-[#CBEA30]/50 bg-black overflow-hidden shadow-xl" style="box-shadow: 0 16px 36px -10px rgba(203, 234, 48, 0.25);">
         <div class="relative w-full overflow-hidden" style="aspect-ratio: 16 / 9;">
           <iframe
             src="https://www.youtube.com/embed/hla0AZEVCkE"
@@ -460,7 +452,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Video 1 -->
-        <div class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
+        <div class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
           <div class="relative w-full overflow-hidden bg-black" style="aspect-ratio: 16 / 9;">
             <iframe
               src="https://www.youtube.com/embed/MF9G8jK2sx0"
@@ -487,7 +479,7 @@
         </div>
 
         <!-- Video 2 -->
-        <div class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
+        <div class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
           <div class="relative w-full overflow-hidden bg-black" style="aspect-ratio: 16 / 9;">
             <iframe
               src="https://www.youtube.com/embed/TxHoFUIeFPM"
@@ -514,7 +506,7 @@
         </div>
 
         <!-- Video 3 -->
-        <div class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
+        <div class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
           <div class="relative w-full overflow-hidden bg-black" style="aspect-ratio: 16 / 9;">
             <iframe
               src="https://www.youtube.com/embed/mK9k2a4x1u0"
@@ -541,7 +533,7 @@
         </div>
 
         <!-- Video 4 -->
-        <div class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
+        <div class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md flex flex-col">
           <div class="relative w-full overflow-hidden bg-black" style="aspect-ratio: 16 / 9;">
             <iframe
               src="https://www.youtube.com/embed/hJ8uXv2oD4M"
@@ -590,7 +582,7 @@
 
         <!-- Graphic 1 -->
         <div
-          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
           onclick="openLightbox('graphic1.jpg', 'Graphic 01', 'https://i.postimg.cc/pTvS6b9C/graphic1.jpg')"
         >
           <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
@@ -613,7 +605,7 @@
 
         <!-- Graphic 2 -->
         <div
-          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
           onclick="openLightbox('graphic2.jpg', 'Graphic 02', 'https://i.postimg.cc/02KmSLZV/graphic5.jpg')"
         >
           <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
@@ -636,7 +628,7 @@
 
         <!-- Graphic 3 -->
         <div
-          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
           onclick="openLightbox('graphic3.jpg', 'Graphic 03', 'https://i.postimg.cc/mD8z67Xw/graphic3.jpg')"
         >
           <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
@@ -659,7 +651,7 @@
 
         <!-- Graphic 4 -->
         <div
-          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
           onclick="openLightbox('graphic4.jpg', 'Graphic 04', 'https://i.postimg.cc/L6gfPrvy/graphic2.jpg')"
         >
           <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
@@ -682,7 +674,7 @@
 
         <!-- Graphic 5 -->
         <div
-          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
           onclick="openLightbox('graphic5.jpg', 'Graphic 05', 'https://i.postimg.cc/02KmSLZV/graphic5.jpg')"
         >
           <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
@@ -705,7 +697,7 @@
 
         <!-- Graphic 6 -->
         <div
-          class="card-bottom-glow rounded-2xl overflow-hidden border-2 border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
+          class="card-bottom-glow rounded-2xl overflow-hidden border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-md cursor-pointer group"
           onclick="openLightbox('graphic6.jpg', 'Graphic 06', 'https://i.postimg.cc/5NQvzZpK/graphic6.jpg')"
         >
           <div class="relative w-full overflow-hidden bg-slate-900" style="aspect-ratio: 4 / 5;">
@@ -740,7 +732,7 @@
         </h2>
       </div>
 
-      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-2 border-[#CBEA30]/45 bg-[#111827] shadow-xl">
+      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-xl">
         <p data-i18n="about.bio" class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
           "I am a passionate Video Editor and Graphic Designer who is dedicated to learning, practicing, and improving every day. Over the past three months, I have been actively developing my skills in video editing while exploring creative design and visual storytelling. I spend time practicing regularly, learning new techniques, and challenging myself to create better and more engaging work. I believe consistent practice, curiosity, and a willingness to learn are essential for creative growth. Although I am still at an early stage of my professional journey, I bring genuine dedication, fresh creativity, and a strong desire to improve with every project. My goal is to continue developing myself as a creative professional and create meaningful visual work that people remember."
         </p>
@@ -758,7 +750,7 @@
         </h2>
       </div>
 
-      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-2 border-[#CBEA30]/45 bg-[#111827] shadow-xl space-y-4">
+      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-xl space-y-4">
         <span data-i18n="journey.badge" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#CBEA30]/15 text-[#CBEA30] border-2 border-[#CBEA30]/40">
           3-Month Skill Development Journey
         </span>
@@ -779,7 +771,7 @@
         </h2>
       </div>
 
-      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-2 border-[#CBEA30]/45 bg-[#111827] shadow-xl space-y-6">
+      <div class="card-bottom-glow p-6 sm:p-8 rounded-2xl border-[3px] border-[#CBEA30]/45 bg-[#111827] shadow-xl space-y-6">
         <p data-i18n="contact.subtitle" class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
           "I’m always interested in learning, creating, and taking on opportunities where I can contribute, grow, and develop my creative skills."
         </p>
@@ -790,7 +782,7 @@
           <!-- Email Button -->
           <a
             href="mailto:mahfujurrahmansbmc@gmail.com"
-            class="p-4 rounded-xl border-2 border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
+            class="p-4 rounded-xl border-[2.5px] border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
           >
             <div>
               <span data-i18n="contact.emailLabel" class="text-[11px] block font-medium text-slate-400">Email</span>
@@ -808,7 +800,7 @@
             href="https://wa.me/8801829826160"
             target="_blank"
             rel="noreferrer"
-            class="p-4 rounded-xl border-2 border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
+            class="p-4 rounded-xl border-[2.5px] border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
           >
             <div>
               <span data-i18n="contact.whatsappLabel" class="text-[11px] block font-medium text-slate-400">WhatsApp</span>
@@ -826,7 +818,7 @@
             href="https://www.facebook.com/share/1FU19i662s/"
             target="_blank"
             rel="noreferrer"
-            class="p-4 rounded-xl border-2 border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
+            class="p-4 rounded-xl border-[2.5px] border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
           >
             <div>
               <span class="text-[11px] block font-medium text-slate-400">Social</span>
@@ -844,7 +836,7 @@
             href="https://www.behance.net/mahfujurrahman120"
             target="_blank"
             rel="noreferrer"
-            class="p-4 rounded-xl border-2 border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
+            class="p-4 rounded-xl border-[2.5px] border-[#CBEA30]/35 bg-[#161F33] hover:border-[#CBEA30]/70 hover:bg-[#1E293B] transition-all flex items-center justify-between group"
           >
             <div>
               <span class="text-[11px] block font-medium text-slate-400">Portfolio</span>
@@ -921,9 +913,145 @@
   </div>
 
   <!-- ========================================================================= -->
+  <!-- CUSTOM CURSOR FOLLOWING RING & CENTER DOT -->
+  <!-- ========================================================================= -->
+  <div id="custom-cursor-container" class="fixed inset-0 pointer-events-none z-[9999] opacity-0 transition-opacity duration-300" aria-hidden="true">
+    <div id="custom-cursor-ring" class="fixed top-0 left-0 w-[34px] h-[34px] rounded-full border-[2.5px] border-[#CBEA30] pointer-events-none will-change-transform" style="border-width: 2.5px; border-color: rgba(203, 234, 48, 0.9); box-shadow: 0 0 10px rgba(203, 234, 48, 0.45); transition: border-color 0.2s ease, box-shadow 0.2s ease;"></div>
+    <div id="custom-cursor-dot" class="fixed top-0 left-0 w-[5px] h-[5px] rounded-full bg-[#CBEA30] pointer-events-none will-change-transform" style="box-shadow: 0 0 6px rgba(203, 234, 48, 0.8);"></div>
+  </div>
+
+  <!-- ========================================================================= -->
   <!-- 11. CORE INTERACTION SCRIPTS: BUBBLES, THEME & LANGUAGE -->
   <!-- ========================================================================= -->
   <script>
+    // -------------------------------------------------------------------------
+    // CUSTOM CURSOR FOLLOWING RING & ON/OFF TOGGLE
+    // -------------------------------------------------------------------------
+    let cursorEffectEnabled = localStorage.getItem('portfolio-cursor-effect') !== null
+      ? localStorage.getItem('portfolio-cursor-effect') === 'true'
+      : true; // Default ON
+
+    function updateCursorToggleUI() {
+      const btnText = document.getElementById('cursor-toggle-text');
+      const btn = document.getElementById('cursor-effect-toggle-btn');
+      const mobBtn = document.getElementById('mobile-cursor-effect-toggle-btn');
+      const iconCircle = document.querySelector('#cursor-toggle-icon circle');
+      const mobIconCircle = document.querySelector('#mobile-cursor-toggle-icon circle');
+      const container = document.getElementById('custom-cursor-container');
+
+      if (cursorEffectEnabled) {
+        if (btnText) btnText.textContent = 'Cursor ON';
+        if (btn) {
+          btn.style.borderColor = 'rgba(203, 234, 48, 0.65)';
+          btn.style.backgroundColor = 'rgba(203, 234, 48, 0.14)';
+          btn.classList.remove('opacity-60');
+        }
+        if (mobBtn) {
+          mobBtn.style.borderColor = 'rgba(203, 234, 48, 0.65)';
+          mobBtn.style.backgroundColor = 'rgba(203, 234, 48, 0.14)';
+          mobBtn.classList.remove('opacity-60');
+        }
+        if (iconCircle) iconCircle.setAttribute('stroke-dasharray', 'none');
+        if (mobIconCircle) mobIconCircle.setAttribute('stroke-dasharray', 'none');
+      } else {
+        if (btnText) btnText.textContent = 'Cursor OFF';
+        if (btn) {
+          btn.style.borderColor = 'rgba(203, 234, 48, 0.25)';
+          btn.style.backgroundColor = 'transparent';
+          btn.classList.add('opacity-60');
+        }
+        if (mobBtn) {
+          mobBtn.style.borderColor = 'rgba(203, 234, 48, 0.25)';
+          mobBtn.style.backgroundColor = 'transparent';
+          mobBtn.classList.add('opacity-60');
+        }
+        if (iconCircle) iconCircle.setAttribute('stroke-dasharray', '3 2');
+        if (mobIconCircle) mobIconCircle.setAttribute('stroke-dasharray', '3 2');
+        if (container) container.style.opacity = '0';
+      }
+    }
+
+    function toggleCursorEffect() {
+      cursorEffectEnabled = !cursorEffectEnabled;
+      localStorage.setItem('portfolio-cursor-effect', String(cursorEffectEnabled));
+      updateCursorToggleUI();
+    }
+
+    // Custom cursor animation loop
+    (function initCursorRing() {
+      const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      if (isCoarse && hasTouch) return; // Do not show on touch/mobile devices
+
+      const ring = document.getElementById('custom-cursor-ring');
+      const dot = document.getElementById('custom-cursor-dot');
+      const container = document.getElementById('custom-cursor-container');
+      if (!ring || !dot || !container) return;
+
+      let mouseX = -100, mouseY = -100;
+      let ringX = -100, ringY = -100;
+      let dotX = -100, dotY = -100;
+      let isVisible = false;
+      let isHovering = false;
+      let isMouseDown = false;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!isVisible && cursorEffectEnabled) {
+          isVisible = true;
+          if (ringX < 0) {
+            ringX = mouseX; ringY = mouseY;
+            dotX = mouseX; dotY = mouseY;
+          }
+          container.style.opacity = '1';
+        }
+      }, { passive: true });
+
+      document.addEventListener('mouseleave', () => {
+        isVisible = false;
+        container.style.opacity = '0';
+      });
+
+      document.addEventListener('mouseenter', () => {
+        if (cursorEffectEnabled) {
+          isVisible = true;
+          container.style.opacity = '1';
+        }
+      });
+
+      window.addEventListener('mousedown', () => { isMouseDown = true; }, { passive: true });
+      window.addEventListener('mouseup', () => { isMouseDown = false; }, { passive: true });
+
+      window.addEventListener('mouseover', (e) => {
+        const interactive = e.target && e.target.closest && e.target.closest('a, button, input, textarea, select, [role="button"], [onclick], .cursor-pointer');
+        isHovering = !!interactive;
+      }, { passive: true });
+
+      function renderCursor() {
+        if (cursorEffectEnabled && isVisible) {
+          ringX += (mouseX - ringX) * 0.16;
+          ringY += (mouseY - ringY) * 0.16;
+          dotX += (mouseX - dotX) * 0.45;
+          dotY += (mouseY - dotY) * 0.45;
+
+          const scale = isMouseDown ? 0.8 : (isHovering ? 1.35 : 1.0);
+          ring.style.transform = `translate3d(${ringX - 17}px, ${ringY - 17}px, 0px) scale(${scale})`;
+          dot.style.transform = `translate3d(${dotX - 2.5}px, ${dotY - 2.5}px, 0px)`;
+
+          if (isHovering) {
+            ring.style.borderColor = '#CBEA30';
+            ring.style.boxShadow = '0 0 16px rgba(203, 234, 48, 0.7), inset 0 0 8px rgba(203, 234, 48, 0.25)';
+          } else {
+            ring.style.borderColor = currentTheme === 'dark' ? 'rgba(203, 234, 48, 0.9)' : 'rgba(141, 174, 9, 0.95)';
+            ring.style.boxShadow = currentTheme === 'dark' ? '0 0 10px rgba(203, 234, 48, 0.45)' : '0 0 8px rgba(141, 174, 9, 0.35)';
+          }
+        }
+        requestAnimationFrame(renderCursor);
+      }
+      requestAnimationFrame(renderCursor);
+    })();
+
     // -------------------------------------------------------------------------
     // THEME STATE & TOGGLING (DARK / LIGHT)
     // -------------------------------------------------------------------------
@@ -1065,24 +1193,22 @@
     }
 
     // -------------------------------------------------------------------------
-    // BUBBLE EFFECTS: Canvas-based floating ambient bubbles + cursor trail
+    // BUBBLE EFFECTS: Canvas-based floating ambient bubbles
     // -------------------------------------------------------------------------
     (function initBubbles() {
       const bgCanvas = document.getElementById('ambient-bubbles-canvas');
-      const cursorCanvas = document.getElementById('cursor-bubbles-canvas');
-      if (!bgCanvas || !cursorCanvas) return;
+      if (!bgCanvas) return;
 
       const bgCtx = bgCanvas.getContext('2d');
-      const cursorCtx = cursorCanvas.getContext('2d');
-      if (!bgCtx || !cursorCtx) return;
+      if (!bgCtx) return;
 
       // Respect prefers-reduced-motion
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
       }
 
-      let width = (bgCanvas.width = cursorCanvas.width = window.innerWidth);
-      let height = (bgCanvas.height = cursorCanvas.height = window.innerHeight);
+      let width = (bgCanvas.width = window.innerWidth);
+      let height = (bgCanvas.height = window.innerHeight);
 
       const ACCENT = '203, 234, 48';
 
@@ -1120,59 +1246,15 @@
         nextAmbientSpawnTime = now + (Math.random() * 2000 + 1800);
       }
 
-      const cursorBubbles = [];
-      const supportsFinePointer = window.matchMedia('(pointer: fine)').matches && !('ontouchstart' in window && window.innerWidth < 1024);
-
-      let lastX = -999, lastY = -999;
-      let lastSpawn = 0;
-
-      if (supportsFinePointer) {
-        window.addEventListener('mousemove', (e) => {
-          const now = performance.now();
-          const dx = e.clientX - lastX;
-          const dy = e.clientY - lastY;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist > 18 && now - lastSpawn > 45) {
-            const spawnCount = dist > 90 ? 2 : 1;
-            for (let i = 0; i < spawnCount; i++) {
-              const radius = Math.random() * 4 + 5.5;
-              const maxLife = Math.floor(Math.random() * 30 + 55);
-              const angle = Math.random() * Math.PI * 2;
-              const speed = Math.random() * 0.85 + 0.25;
-
-              cursorBubbles.push({
-                x: e.clientX + (Math.random() - 0.5) * 12,
-                y: e.clientY + (Math.random() - 0.5) * 12,
-                vx: Math.cos(angle) * speed - dx * 0.04,
-                vy: Math.sin(angle) * speed - dy * 0.04,
-                radius: radius,
-                maxRadius: radius,
-                life: maxLife,
-                maxLife: maxLife,
-                baseOpacity: Math.random() * 0.25 + 0.45,
-                wobbleAngle: Math.random() * Math.PI * 2,
-                wobbleSpeed: Math.random() * 0.06 + 0.03,
-                color: ACCENT,
-              });
-            }
-            lastX = e.clientX;
-            lastY = e.clientY;
-            lastSpawn = now;
-          }
-        }, { passive: true });
-      }
-
       window.addEventListener('resize', () => {
-        width = bgCanvas.width = cursorCanvas.width = window.innerWidth;
-        height = bgCanvas.height = cursorCanvas.height = window.innerHeight;
+        width = bgCanvas.width = window.innerWidth;
+        height = bgCanvas.height = window.innerHeight;
       });
 
       spawnAmbientBubble(performance.now(), true);
 
       function loop(now) {
         bgCtx.clearRect(0, 0, width, height);
-        cursorCtx.clearRect(0, 0, width, height);
 
         const isLight = document.documentElement.classList.contains('light');
 
@@ -1222,49 +1304,6 @@
           bgCtx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.6})`;
           bgCtx.fill();
           bgCtx.restore();
-        }
-
-        for (let i = cursorBubbles.length - 1; i >= 0; i--) {
-          const cb = cursorBubbles[i];
-          cb.life--;
-          cb.wobbleAngle += cb.wobbleSpeed;
-          cb.vx *= 0.96;
-          cb.vy *= 0.96;
-          cb.vy -= 0.02;
-          cb.x += cb.vx + Math.sin(cb.wobbleAngle) * 0.18;
-          cb.y += cb.vy;
-
-          const progress = cb.life / cb.maxLife;
-          if (cb.life <= 0 || progress <= 0) {
-            cursorBubbles.splice(i, 1);
-            continue;
-          }
-
-          const fadeFactor = progress > 0.65 ? 1 : Math.pow(progress / 0.65, 0.85);
-          const currentOpacity = cb.baseOpacity * fadeFactor;
-          const currentRadius = Math.max(1.2, cb.maxRadius * (0.3 + 0.7 * Math.pow(progress, 0.75)));
-
-          if (currentOpacity <= 0.01) {
-            cursorBubbles.splice(i, 1);
-            continue;
-          }
-
-          cursorCtx.save();
-          cursorCtx.beginPath();
-          cursorCtx.arc(cb.x, cb.y, currentRadius, 0, Math.PI * 2);
-          cursorCtx.fillStyle = isLight ? `rgba(${cb.color}, ${currentOpacity * 0.55})` : `rgba(${cb.color}, ${currentOpacity * 0.45})`;
-          cursorCtx.fill();
-          cursorCtx.lineWidth = 1.2;
-          cursorCtx.strokeStyle = isLight ? `rgba(135, 170, 10, ${currentOpacity * 0.95})` : `rgba(${cb.color}, ${currentOpacity * 0.88})`;
-          cursorCtx.stroke();
-
-          if (currentRadius > 3.0) {
-            cursorCtx.beginPath();
-            cursorCtx.arc(cb.x - currentRadius * 0.3, cb.y - currentRadius * 0.3, currentRadius * 0.22, 0, Math.PI * 2);
-            cursorCtx.fillStyle = `rgba(255, 255, 255, ${currentOpacity * 0.8})`;
-            cursorCtx.fill();
-          }
-          cursorCtx.restore();
         }
 
         requestAnimationFrame(loop);

@@ -125,52 +125,140 @@
       color: #000000 !important;
     }
 
-    /* Professional Card Bottom Glow Effect strictly with #CBEA30 */
+    /* Professional Card Ambient Glow Effect strictly with #CBEA30 */
     .card-bottom-glow {
       position: relative;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.25s ease, background-color 0.3s ease;
+      animation: ambientUnderGlowDark 7s ease-in-out infinite;
     }
 
+    html.light .card-bottom-glow {
+      animation: ambientUnderGlowLight 7s ease-in-out infinite;
+    }
+
+    /* Subtle dynamic under-rim light sweep */
     .card-bottom-glow::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 10%;
-      right: 10%;
+      bottom: -1px;
+      left: 12%;
+      right: 12%;
       height: 2px;
       background: linear-gradient(90deg, transparent, #CBEA30 50%, transparent);
       opacity: 0.65;
-      box-shadow: 0 0 14px rgba(203, 234, 48, 0.45);
-      transition: opacity 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
+      filter: blur(1px);
+      box-shadow: 0 0 16px rgba(203, 234, 48, 0.6);
       pointer-events: none;
       border-radius: 9999px;
+      animation: ambientGlowSweep 6s ease-in-out infinite alternate;
     }
 
-    @keyframes gentlePulse {
-      0%, 100% {
-        opacity: 0.45;
-        box-shadow: 0 0 10px rgba(203, 234, 48, 0.35);
+    @keyframes ambientUnderGlowDark {
+      0% {
+        box-shadow:
+          0 14px 34px -8px rgba(203, 234, 48, 0.22),
+          -10px 18px 42px -10px rgba(203, 234, 48, 0.18),
+          8px 12px 28px -6px rgba(203, 234, 48, 0.10),
+          0 4px 16px rgba(0, 0, 0, 0.45);
+      }
+      25% {
+        box-shadow:
+          -6px 16px 38px -8px rgba(203, 234, 48, 0.26),
+          0 22px 48px -10px rgba(203, 234, 48, 0.22),
+          12px 16px 34px -8px rgba(203, 234, 48, 0.14),
+          0 4px 16px rgba(0, 0, 0, 0.45);
       }
       50% {
-        opacity: 0.85;
-        box-shadow: 0 0 20px rgba(203, 234, 48, 0.7);
+        box-shadow:
+          0 18px 42px -8px rgba(203, 234, 48, 0.24),
+          12px 20px 45px -10px rgba(203, 234, 48, 0.20),
+          -8px 14px 30px -8px rgba(203, 234, 48, 0.12),
+          0 4px 16px rgba(0, 0, 0, 0.45);
+      }
+      75% {
+        box-shadow:
+          8px 16px 38px -8px rgba(203, 234, 48, 0.26),
+          0 20px 44px -10px rgba(203, 234, 48, 0.20),
+          -12px 16px 34px -8px rgba(203, 234, 48, 0.14),
+          0 4px 16px rgba(0, 0, 0, 0.45);
+      }
+      100% {
+        box-shadow:
+          0 14px 34px -8px rgba(203, 234, 48, 0.22),
+          -10px 18px 42px -10px rgba(203, 234, 48, 0.18),
+          8px 12px 28px -6px rgba(203, 234, 48, 0.10),
+          0 4px 16px rgba(0, 0, 0, 0.45);
       }
     }
 
-    .card-bottom-glow::after {
-      animation: gentlePulse 4s ease-in-out infinite;
+    @keyframes ambientUnderGlowLight {
+      0% {
+        box-shadow:
+          0 14px 34px -8px rgba(160, 195, 20, 0.24),
+          -10px 18px 42px -10px rgba(160, 195, 20, 0.18),
+          8px 12px 28px -6px rgba(160, 195, 20, 0.12),
+          0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      25% {
+        box-shadow:
+          -6px 16px 38px -8px rgba(160, 195, 20, 0.28),
+          0 22px 48px -10px rgba(160, 195, 20, 0.22),
+          12px 16px 34px -8px rgba(160, 195, 20, 0.15),
+          0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      50% {
+        box-shadow:
+          0 18px 42px -8px rgba(160, 195, 20, 0.26),
+          12px 20px 45px -10px rgba(160, 195, 20, 0.20),
+          -8px 14px 30px -8px rgba(160, 195, 20, 0.13),
+          0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      75% {
+        box-shadow:
+          8px 16px 38px -8px rgba(160, 195, 20, 0.28),
+          0 20px 44px -10px rgba(160, 195, 20, 0.20),
+          -12px 16px 34px -8px rgba(160, 195, 20, 0.15),
+          0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      100% {
+        box-shadow:
+          0 14px 34px -8px rgba(160, 195, 20, 0.24),
+          -10px 18px 42px -10px rgba(160, 195, 20, 0.18),
+          8px 12px 28px -6px rgba(160, 195, 20, 0.12),
+          0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    @keyframes ambientGlowSweep {
+      0% {
+        left: 8%;
+        right: 20%;
+        opacity: 0.5;
+        box-shadow: 0 0 12px rgba(203, 234, 48, 0.45);
+      }
+      50% {
+        left: 14%;
+        right: 14%;
+        opacity: 0.85;
+        box-shadow: 0 0 20px rgba(203, 234, 48, 0.75);
+      }
+      100% {
+        left: 20%;
+        right: 8%;
+        opacity: 0.5;
+        box-shadow: 0 0 12px rgba(203, 234, 48, 0.45);
+      }
     }
 
     .card-bottom-glow:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 28px -8px rgba(203, 234, 48, 0.22), 0 0 20px -4px rgba(203, 234, 48, 0.25);
-      border-color: rgba(203, 234, 48, 0.8) !important;
+      border-color: rgba(203, 234, 48, 0.85) !important;
     }
 
     .card-bottom-glow:hover::after {
       opacity: 1;
       height: 3px;
-      box-shadow: 0 0 22px rgba(203, 234, 48, 0.9), 0 0 8px rgba(203, 234, 48, 0.6);
+      box-shadow: 0 0 24px rgba(203, 234, 48, 0.95), 0 0 8px rgba(203, 234, 48, 0.7);
     }
 
     /* Scroll Entrance Animation */
@@ -207,10 +295,9 @@
 <body id="app-body" class="bg-[#0B0F17] text-[#F8FAFC] antialiased selection:bg-[#CBEA30]/30 selection:text-[#CBEA30] relative overflow-x-hidden">
 
   <!-- ========================================================================= -->
-  <!-- BUBBLE CANVASES (Floating Ambient Background + Mouse Following Trail) -->
+  <!-- BUBBLE CANVAS (Floating Ambient Background) -->
   <!-- ========================================================================= -->
   <canvas id="ambient-bubbles-canvas" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></canvas>
-  <canvas id="cursor-bubbles-canvas" class="fixed inset-0 pointer-events-none z-30" aria-hidden="true"></canvas>
 
   <!-- ========================================================================= -->
   <!-- 1. NAVIGATION BAR -->
@@ -258,6 +345,22 @@
             </button>
           </div>
 
+          <!-- Cursor Effect Toggle Button -->
+          <button
+            type="button"
+            id="cursor-effect-toggle-btn"
+            onclick="toggleCursorEffect()"
+            aria-label="Toggle custom cursor effect"
+            title="Cursor Ring Effect: ON (Click to turn OFF)"
+            class="px-2.5 py-1.5 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10 text-[#CBEA30] flex items-center gap-1.5 cursor-pointer transition-all select-none hover:bg-[#CBEA30]/20"
+          >
+            <svg id="cursor-toggle-icon" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8.5" stroke="#CBEA30" stroke-width="2" />
+              <circle cx="12" cy="12" r="2.5" fill="#CBEA30" />
+            </svg>
+            <span id="cursor-toggle-text" class="text-xs font-bold text-[#CBEA30]">Cursor ON</span>
+          </button>
+
           <!-- Dark/Light Mode Toggle Button -->
           <button
             type="button"
@@ -299,6 +402,21 @@
             বাংলা
           </button>
         </div>
+
+        <!-- Mobile Cursor Effect Toggle -->
+        <button
+          type="button"
+          id="mobile-cursor-effect-toggle-btn"
+          onclick="toggleCursorEffect()"
+          aria-label="Toggle custom cursor effect"
+          title="Cursor Ring Effect: ON"
+          class="p-2 rounded-xl border-2 border-[#CBEA30]/45 bg-[#CBEA30]/10 text-[#CBEA30] flex items-center justify-center cursor-pointer"
+        >
+          <svg id="mobile-cursor-toggle-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="8.5" stroke="#CBEA30" stroke-width="2" />
+            <circle cx="12" cy="12" r="2.5" fill="#CBEA30" />
+          </svg>
+        </button>
 
         <button
           type="button"
@@ -349,7 +467,7 @@
           
           <!-- Profile Picture -->
           <div class="shrink-0 relative">
-            <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-[#CBEA30]/55 shadow-md bg-slate-900 flex items-center justify-center" style="box-shadow: 0 0 20px rgba(203, 234, 48, 0.25);">
+            <div class="card-bottom-glow w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-[#CBEA30]/55 shadow-md bg-slate-900 flex items-center justify-center">
               <img
                 src="profile.jpg"
                 alt="Mahfujur Rahman"
@@ -427,7 +545,7 @@
       </div>
 
       <!-- Responsive 16:9 Video Container -->
-      <div id="featured-video-container" class="card-bottom-glow rounded-2xl sm:rounded-3xl border-2 border-[#CBEA30]/50 bg-black overflow-hidden shadow-xl" style="box-shadow: 0 16px 36px -10px rgba(203, 234, 48, 0.25);">
+      <div id="featured-video-container" class="card-bottom-glow rounded-2xl sm:rounded-3xl border-2 border-[#CBEA30]/50 bg-black overflow-hidden shadow-xl">
         <div class="relative w-full overflow-hidden" style="aspect-ratio: 16 / 9;">
           <iframe
             src="https://www.youtube.com/embed/hla0AZEVCkE"
@@ -921,9 +1039,145 @@
   </div>
 
   <!-- ========================================================================= -->
+  <!-- CUSTOM CURSOR FOLLOWING RING & CENTER DOT -->
+  <!-- ========================================================================= -->
+  <div id="custom-cursor-container" class="fixed inset-0 pointer-events-none z-[9999] opacity-0 transition-opacity duration-300" aria-hidden="true">
+    <div id="custom-cursor-ring" class="fixed top-0 left-0 w-[34px] h-[34px] rounded-full border-[2.5px] border-[#CBEA30] pointer-events-none will-change-transform" style="border-width: 2.5px; border-color: rgba(203, 234, 48, 0.9); box-shadow: 0 0 10px rgba(203, 234, 48, 0.45); transition: border-color 0.2s ease, box-shadow 0.2s ease;"></div>
+    <div id="custom-cursor-dot" class="fixed top-0 left-0 w-[5px] h-[5px] rounded-full bg-[#CBEA30] pointer-events-none will-change-transform" style="box-shadow: 0 0 6px rgba(203, 234, 48, 0.8);"></div>
+  </div>
+
+  <!-- ========================================================================= -->
   <!-- 11. CORE INTERACTION SCRIPTS: BUBBLES, THEME & LANGUAGE -->
   <!-- ========================================================================= -->
   <script>
+    // -------------------------------------------------------------------------
+    // CUSTOM CURSOR FOLLOWING RING & ON/OFF TOGGLE
+    // -------------------------------------------------------------------------
+    let cursorEffectEnabled = localStorage.getItem('portfolio-cursor-effect') !== null
+      ? localStorage.getItem('portfolio-cursor-effect') === 'true'
+      : true; // Default ON
+
+    function updateCursorToggleUI() {
+      const btnText = document.getElementById('cursor-toggle-text');
+      const btn = document.getElementById('cursor-effect-toggle-btn');
+      const mobBtn = document.getElementById('mobile-cursor-effect-toggle-btn');
+      const iconCircle = document.querySelector('#cursor-toggle-icon circle');
+      const mobIconCircle = document.querySelector('#mobile-cursor-toggle-icon circle');
+      const container = document.getElementById('custom-cursor-container');
+
+      if (cursorEffectEnabled) {
+        if (btnText) btnText.textContent = 'Cursor ON';
+        if (btn) {
+          btn.style.borderColor = 'rgba(203, 234, 48, 0.65)';
+          btn.style.backgroundColor = 'rgba(203, 234, 48, 0.14)';
+          btn.classList.remove('opacity-60');
+        }
+        if (mobBtn) {
+          mobBtn.style.borderColor = 'rgba(203, 234, 48, 0.65)';
+          mobBtn.style.backgroundColor = 'rgba(203, 234, 48, 0.14)';
+          mobBtn.classList.remove('opacity-60');
+        }
+        if (iconCircle) iconCircle.setAttribute('stroke-dasharray', 'none');
+        if (mobIconCircle) mobIconCircle.setAttribute('stroke-dasharray', 'none');
+      } else {
+        if (btnText) btnText.textContent = 'Cursor OFF';
+        if (btn) {
+          btn.style.borderColor = 'rgba(203, 234, 48, 0.25)';
+          btn.style.backgroundColor = 'transparent';
+          btn.classList.add('opacity-60');
+        }
+        if (mobBtn) {
+          mobBtn.style.borderColor = 'rgba(203, 234, 48, 0.25)';
+          mobBtn.style.backgroundColor = 'transparent';
+          mobBtn.classList.add('opacity-60');
+        }
+        if (iconCircle) iconCircle.setAttribute('stroke-dasharray', '3 2');
+        if (mobIconCircle) mobIconCircle.setAttribute('stroke-dasharray', '3 2');
+        if (container) container.style.opacity = '0';
+      }
+    }
+
+    function toggleCursorEffect() {
+      cursorEffectEnabled = !cursorEffectEnabled;
+      localStorage.setItem('portfolio-cursor-effect', String(cursorEffectEnabled));
+      updateCursorToggleUI();
+    }
+
+    // Custom cursor animation loop
+    (function initCursorRing() {
+      const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      if (isCoarse && hasTouch) return; // Do not show on touch/mobile devices
+
+      const ring = document.getElementById('custom-cursor-ring');
+      const dot = document.getElementById('custom-cursor-dot');
+      const container = document.getElementById('custom-cursor-container');
+      if (!ring || !dot || !container) return;
+
+      let mouseX = -100, mouseY = -100;
+      let ringX = -100, ringY = -100;
+      let dotX = -100, dotY = -100;
+      let isVisible = false;
+      let isHovering = false;
+      let isMouseDown = false;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!isVisible && cursorEffectEnabled) {
+          isVisible = true;
+          if (ringX < 0) {
+            ringX = mouseX; ringY = mouseY;
+            dotX = mouseX; dotY = mouseY;
+          }
+          container.style.opacity = '1';
+        }
+      }, { passive: true });
+
+      document.addEventListener('mouseleave', () => {
+        isVisible = false;
+        container.style.opacity = '0';
+      });
+
+      document.addEventListener('mouseenter', () => {
+        if (cursorEffectEnabled) {
+          isVisible = true;
+          container.style.opacity = '1';
+        }
+      });
+
+      window.addEventListener('mousedown', () => { isMouseDown = true; }, { passive: true });
+      window.addEventListener('mouseup', () => { isMouseDown = false; }, { passive: true });
+
+      window.addEventListener('mouseover', (e) => {
+        const interactive = e.target && e.target.closest && e.target.closest('a, button, input, textarea, select, [role="button"], [onclick], .cursor-pointer');
+        isHovering = !!interactive;
+      }, { passive: true });
+
+      function renderCursor() {
+        if (cursorEffectEnabled && isVisible) {
+          ringX += (mouseX - ringX) * 0.16;
+          ringY += (mouseY - ringY) * 0.16;
+          dotX += (mouseX - dotX) * 0.45;
+          dotY += (mouseY - dotY) * 0.45;
+
+          const scale = isMouseDown ? 0.8 : (isHovering ? 1.35 : 1.0);
+          ring.style.transform = `translate3d(${ringX - 17}px, ${ringY - 17}px, 0px) scale(${scale})`;
+          dot.style.transform = `translate3d(${dotX - 2.5}px, ${dotY - 2.5}px, 0px)`;
+
+          if (isHovering) {
+            ring.style.borderColor = '#CBEA30';
+            ring.style.boxShadow = '0 0 16px rgba(203, 234, 48, 0.7), inset 0 0 8px rgba(203, 234, 48, 0.25)';
+          } else {
+            ring.style.borderColor = currentTheme === 'dark' ? 'rgba(203, 234, 48, 0.9)' : 'rgba(141, 174, 9, 0.95)';
+            ring.style.boxShadow = currentTheme === 'dark' ? '0 0 10px rgba(203, 234, 48, 0.45)' : '0 0 8px rgba(141, 174, 9, 0.35)';
+          }
+        }
+        requestAnimationFrame(renderCursor);
+      }
+      requestAnimationFrame(renderCursor);
+    })();
+
     // -------------------------------------------------------------------------
     // THEME STATE & TOGGLING (DARK / LIGHT)
     // -------------------------------------------------------------------------
@@ -1065,24 +1319,22 @@
     }
 
     // -------------------------------------------------------------------------
-    // BUBBLE EFFECTS: Canvas-based floating ambient bubbles + cursor trail
+    // BUBBLE EFFECTS: Canvas-based floating ambient bubbles
     // -------------------------------------------------------------------------
     (function initBubbles() {
       const bgCanvas = document.getElementById('ambient-bubbles-canvas');
-      const cursorCanvas = document.getElementById('cursor-bubbles-canvas');
-      if (!bgCanvas || !cursorCanvas) return;
+      if (!bgCanvas) return;
 
       const bgCtx = bgCanvas.getContext('2d');
-      const cursorCtx = cursorCanvas.getContext('2d');
-      if (!bgCtx || !cursorCtx) return;
+      if (!bgCtx) return;
 
       // Respect prefers-reduced-motion
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
       }
 
-      let width = (bgCanvas.width = cursorCanvas.width = window.innerWidth);
-      let height = (bgCanvas.height = cursorCanvas.height = window.innerHeight);
+      let width = (bgCanvas.width = window.innerWidth);
+      let height = (bgCanvas.height = window.innerHeight);
 
       const ACCENT = '203, 234, 48';
 
@@ -1120,59 +1372,15 @@
         nextAmbientSpawnTime = now + (Math.random() * 2000 + 1800);
       }
 
-      const cursorBubbles = [];
-      const supportsFinePointer = window.matchMedia('(pointer: fine)').matches && !('ontouchstart' in window && window.innerWidth < 1024);
-
-      let lastX = -999, lastY = -999;
-      let lastSpawn = 0;
-
-      if (supportsFinePointer) {
-        window.addEventListener('mousemove', (e) => {
-          const now = performance.now();
-          const dx = e.clientX - lastX;
-          const dy = e.clientY - lastY;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist > 18 && now - lastSpawn > 45) {
-            const spawnCount = dist > 90 ? 2 : 1;
-            for (let i = 0; i < spawnCount; i++) {
-              const radius = Math.random() * 4 + 5.5;
-              const maxLife = Math.floor(Math.random() * 30 + 55);
-              const angle = Math.random() * Math.PI * 2;
-              const speed = Math.random() * 0.85 + 0.25;
-
-              cursorBubbles.push({
-                x: e.clientX + (Math.random() - 0.5) * 12,
-                y: e.clientY + (Math.random() - 0.5) * 12,
-                vx: Math.cos(angle) * speed - dx * 0.04,
-                vy: Math.sin(angle) * speed - dy * 0.04,
-                radius: radius,
-                maxRadius: radius,
-                life: maxLife,
-                maxLife: maxLife,
-                baseOpacity: Math.random() * 0.25 + 0.45,
-                wobbleAngle: Math.random() * Math.PI * 2,
-                wobbleSpeed: Math.random() * 0.06 + 0.03,
-                color: ACCENT,
-              });
-            }
-            lastX = e.clientX;
-            lastY = e.clientY;
-            lastSpawn = now;
-          }
-        }, { passive: true });
-      }
-
       window.addEventListener('resize', () => {
-        width = bgCanvas.width = cursorCanvas.width = window.innerWidth;
-        height = bgCanvas.height = cursorCanvas.height = window.innerHeight;
+        width = bgCanvas.width = window.innerWidth;
+        height = bgCanvas.height = window.innerHeight;
       });
 
       spawnAmbientBubble(performance.now(), true);
 
       function loop(now) {
         bgCtx.clearRect(0, 0, width, height);
-        cursorCtx.clearRect(0, 0, width, height);
 
         const isLight = document.documentElement.classList.contains('light');
 
@@ -1222,49 +1430,6 @@
           bgCtx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.6})`;
           bgCtx.fill();
           bgCtx.restore();
-        }
-
-        for (let i = cursorBubbles.length - 1; i >= 0; i--) {
-          const cb = cursorBubbles[i];
-          cb.life--;
-          cb.wobbleAngle += cb.wobbleSpeed;
-          cb.vx *= 0.96;
-          cb.vy *= 0.96;
-          cb.vy -= 0.02;
-          cb.x += cb.vx + Math.sin(cb.wobbleAngle) * 0.18;
-          cb.y += cb.vy;
-
-          const progress = cb.life / cb.maxLife;
-          if (cb.life <= 0 || progress <= 0) {
-            cursorBubbles.splice(i, 1);
-            continue;
-          }
-
-          const fadeFactor = progress > 0.65 ? 1 : Math.pow(progress / 0.65, 0.85);
-          const currentOpacity = cb.baseOpacity * fadeFactor;
-          const currentRadius = Math.max(1.2, cb.maxRadius * (0.3 + 0.7 * Math.pow(progress, 0.75)));
-
-          if (currentOpacity <= 0.01) {
-            cursorBubbles.splice(i, 1);
-            continue;
-          }
-
-          cursorCtx.save();
-          cursorCtx.beginPath();
-          cursorCtx.arc(cb.x, cb.y, currentRadius, 0, Math.PI * 2);
-          cursorCtx.fillStyle = isLight ? `rgba(${cb.color}, ${currentOpacity * 0.55})` : `rgba(${cb.color}, ${currentOpacity * 0.45})`;
-          cursorCtx.fill();
-          cursorCtx.lineWidth = 1.2;
-          cursorCtx.strokeStyle = isLight ? `rgba(135, 170, 10, ${currentOpacity * 0.95})` : `rgba(${cb.color}, ${currentOpacity * 0.88})`;
-          cursorCtx.stroke();
-
-          if (currentRadius > 3.0) {
-            cursorCtx.beginPath();
-            cursorCtx.arc(cb.x - currentRadius * 0.3, cb.y - currentRadius * 0.3, currentRadius * 0.22, 0, Math.PI * 2);
-            cursorCtx.fillStyle = `rgba(255, 255, 255, ${currentOpacity * 0.8})`;
-            cursorCtx.fill();
-          }
-          cursorCtx.restore();
         }
 
         requestAnimationFrame(loop);

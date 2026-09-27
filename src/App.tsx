@@ -7,6 +7,7 @@ import { AboutSection } from './components/AboutSection.tsx';
 import { ContactSection } from './components/ContactSection.tsx';
 import { Footer } from './components/Footer.tsx';
 import { BubbleBackground } from './components/BubbleBackground.tsx';
+import { CursorRing } from './components/CursorRing.tsx';
 import { ThemeMode, Language } from './types.ts';
 import { TRANSLATIONS } from './data/translations.ts';
 
@@ -17,6 +18,20 @@ export default function App() {
   });
 
   const [language, setLanguage] = useState<Language>('en');
+
+  // Custom cursor following ring effect state (ON by default)
+  const [cursorEffectEnabled, setCursorEffectEnabled] = useState<boolean>(() => {
+    const saved = localStorage.getItem('portfolio-cursor-effect');
+    return saved !== null ? saved === 'true' : true;
+  });
+
+  const toggleCursorEffect = () => {
+    setCursorEffectEnabled((prev) => {
+      const next = !prev;
+      localStorage.setItem('portfolio-cursor-effect', String(next));
+      return next;
+    });
+  };
 
   useEffect(() => {
     localStorage.setItem('portfolio-theme', theme);
@@ -51,15 +66,20 @@ export default function App() {
         isDark ? 'bg-[#0B0F17] text-[#F8FAFC]' : 'bg-[#F8FAFC] text-[#0F172A]'
       }`}
     >
-      {/* 1. Mouse cursor bubble trail + 2. Subtle floating background bubbles */}
+      {/* 1. Subtle custom cursor following ring + center dot */}
+      <CursorRing enabled={cursorEffectEnabled} theme={theme} />
+
+      {/* 2. Ambient background bubbles */}
       <BubbleBackground theme={theme} />
 
-      {/* Top Navbar with Language Switcher and Dark/Light Mode Toggle */}
+      {/* Top Navbar with Language Switcher, Cursor Effect Toggle, and Dark/Light Mode Toggle */}
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
         language={language}
         setLanguage={setLanguage}
+        cursorEffectEnabled={cursorEffectEnabled}
+        toggleCursorEffect={toggleCursorEffect}
         t={t.nav}
       />
 

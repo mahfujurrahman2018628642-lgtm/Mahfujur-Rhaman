@@ -19,28 +19,29 @@ export function HeroSection({ theme, language: _language, t }: HeroSectionProps)
       {/* 1. HERO / INTRODUCTION */}
       <div
         id="hero-profile-card"
-        className={`card-bottom-glow relative p-6 sm:p-10 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 shadow-xl overflow-hidden ${
+        className={`card-bottom-glow relative p-6 sm:p-10 rounded-2xl sm:rounded-3xl border-[3px] transition-all duration-300 shadow-xl ${
           isDark ? 'bg-[#111827] text-white' : 'bg-white text-slate-900 shadow-lg'
         }`}
         style={{
           borderColor: isDark ? 'rgba(203, 234, 48, 0.45)' : 'rgba(203, 234, 48, 0.65)',
           boxShadow: isDark
-            ? '0 12px 32px -10px rgba(203, 234, 48, 0.2), 0 4px 16px rgba(0, 0, 0, 0.5)'
-            : '0 12px 32px -10px rgba(160, 195, 20, 0.25), 0 4px 16px rgba(0, 0, 0, 0.06)',
+            ? '0 8px 24px -6px rgba(203, 234, 48, 0.2), 0 2px 8px rgba(0, 0, 0, 0.5)'
+            : '0 8px 24px -6px rgba(160, 195, 20, 0.22), 0 2px 8px rgba(0, 0, 0, 0.06)',
         }}
       >
         <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-10">
-          {/* Profile Picture */}
+          {/* Profile Picture Card */}
           <div className="relative shrink-0 flex flex-col items-center">
             <div
-              className={`relative w-32 h-32 sm:w-44 sm:h-44 rounded-2xl sm:rounded-3xl p-1 shadow-md transition-transform duration-300 hover:scale-[1.02] border-2 ${
+              id="hero-photo-card"
+              className={`card-bottom-glow relative w-32 h-32 sm:w-44 sm:h-44 rounded-2xl sm:rounded-3xl p-1 shadow-md transition-transform duration-300 hover:scale-[1.02] border-[3px] ${
                 isDark ? 'bg-[#0F172A]' : 'bg-slate-100'
               }`}
               style={{
                 borderColor: isDark ? 'rgba(203, 234, 48, 0.55)' : 'rgba(203, 234, 48, 0.75)',
                 boxShadow: isDark
-                  ? '0 0 20px rgba(203, 234, 48, 0.3)'
-                  : '0 0 16px rgba(203, 234, 48, 0.4)',
+                  ? '0 0 20px rgba(203, 234, 48, 0.25)'
+                  : '0 0 16px rgba(160, 195, 20, 0.25)',
               }}
             >
               <img
@@ -189,17 +190,18 @@ export function HeroSection({ theme, language: _language, t }: HeroSectionProps)
         {/* Responsive 16:9 video container */}
         <div
           id="featured-video-container"
-          className="card-bottom-glow relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border-2 shadow-xl transition-all duration-300"
+          className="card-bottom-glow relative w-full rounded-2xl sm:rounded-3xl border-[3px] transition-all duration-300"
           style={{
             aspectRatio: '16 / 9',
             backgroundColor: '#000000',
             borderColor: isDark ? 'rgba(203, 234, 48, 0.50)' : 'rgba(203, 234, 48, 0.70)',
             boxShadow: isDark
-              ? '0 16px 36px -10px rgba(203, 234, 48, 0.25)'
-              : '0 16px 36px -10px rgba(160, 195, 20, 0.3)',
+              ? '0 12px 32px -8px rgba(203, 234, 48, 0.22), 0 4px 12px rgba(0, 0, 0, 0.6)'
+              : '0 12px 32px -8px rgba(160, 195, 20, 0.25), 0 4px 12px rgba(0, 0, 0, 0.08)',
           }}
         >
-          {isPlaying ? (
+          <div className="w-full h-full rounded-[14px] sm:rounded-[22px] overflow-hidden relative">
+            {isPlaying ? (
             <iframe
               id="featured-youtube-iframe"
               className="w-full h-full border-0"
@@ -259,6 +261,7 @@ export function HeroSection({ theme, language: _language, t }: HeroSectionProps)
               </div>
             </div>
           )}
+          </div>
         </div>
       </div>
     </section>

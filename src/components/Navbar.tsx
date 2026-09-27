@@ -8,10 +8,20 @@ interface NavbarProps {
   toggleTheme: () => void;
   language: Language;
   setLanguage: (lang: Language) => void;
+  cursorEffectEnabled: boolean;
+  toggleCursorEffect: () => void;
   t: Translations['nav'];
 }
 
-export function Navbar({ theme, toggleTheme, language, setLanguage, t }: NavbarProps) {
+export function Navbar({
+  theme,
+  toggleTheme,
+  language,
+  setLanguage,
+  cursorEffectEnabled,
+  toggleCursorEffect,
+  t,
+}: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isDark = theme === 'dark';
 
@@ -128,6 +138,54 @@ export function Navbar({ theme, toggleTheme, language, setLanguage, t }: NavbarP
               </button>
             </div>
 
+            {/* Cursor Effect ON/OFF Toggle */}
+            <button
+              type="button"
+              id="cursor-effect-toggle-btn"
+              onClick={toggleCursorEffect}
+              aria-label={cursorEffectEnabled ? 'Disable custom cursor effect' : 'Enable custom cursor effect'}
+              title={cursorEffectEnabled ? 'Cursor Effect: ON (Click to turn OFF)' : 'Cursor Effect: OFF (Click to turn ON)'}
+              className="px-2.5 py-1.5 rounded-xl border-2 transition-all cursor-pointer flex items-center gap-1.5 select-none"
+              style={{
+                borderColor: isDark
+                  ? cursorEffectEnabled ? 'rgba(203, 234, 48, 0.65)' : 'rgba(203, 234, 48, 0.25)'
+                  : cursorEffectEnabled ? 'rgba(203, 234, 48, 0.85)' : 'rgba(203, 234, 48, 0.35)',
+                backgroundColor: isDark
+                  ? cursorEffectEnabled ? 'rgba(203, 234, 48, 0.12)' : 'rgba(255, 255, 255, 0.03)'
+                  : cursorEffectEnabled ? 'rgba(203, 234, 48, 0.22)' : 'rgba(0, 0, 0, 0.04)',
+              }}
+            >
+              <svg
+                className={`w-3.5 h-3.5 transition-transform ${cursorEffectEnabled ? 'scale-105' : 'opacity-50'}`}
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="8.5"
+                  stroke={cursorEffectEnabled ? '#CBEA30' : (isDark ? '#94A3B8' : '#64748B')}
+                  strokeWidth="2"
+                  strokeDasharray={cursorEffectEnabled ? 'none' : '3 2'}
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="2.5"
+                  fill={cursorEffectEnabled ? '#CBEA30' : (isDark ? '#94A3B8' : '#64748B')}
+                />
+              </svg>
+              <span
+                className={`text-xs font-bold transition-colors ${
+                  cursorEffectEnabled
+                    ? isDark ? 'text-[#CBEA30]' : 'text-slate-900 font-extrabold'
+                    : isDark ? 'text-slate-400' : 'text-slate-500'
+                }`}
+              >
+                Cursor {cursorEffectEnabled ? 'ON' : 'OFF'}
+              </span>
+            </button>
+
             {/* Dark/Light Mode Toggle */}
             <button
               type="button"
@@ -189,6 +247,41 @@ export function Navbar({ theme, toggleTheme, language, setLanguage, t }: NavbarP
             </button>
           </div>
 
+          {/* Mobile Cursor Effect Toggle */}
+          <button
+            type="button"
+            id="mobile-cursor-effect-toggle-btn"
+            onClick={toggleCursorEffect}
+            aria-label={cursorEffectEnabled ? 'Disable cursor effect' : 'Enable cursor effect'}
+            title={cursorEffectEnabled ? 'Cursor Ring: ON' : 'Cursor Ring: OFF'}
+            className="p-2 rounded-xl border-2 transition-all flex items-center justify-center cursor-pointer"
+            style={{
+              borderColor: isDark
+                ? cursorEffectEnabled ? 'rgba(203, 234, 48, 0.65)' : 'rgba(203, 234, 48, 0.25)'
+                : cursorEffectEnabled ? 'rgba(203, 234, 48, 0.85)' : 'rgba(203, 234, 48, 0.35)',
+              backgroundColor: isDark
+                ? cursorEffectEnabled ? 'rgba(203, 234, 48, 0.12)' : 'rgba(255, 255, 255, 0.03)'
+                : cursorEffectEnabled ? 'rgba(203, 234, 48, 0.22)' : 'rgba(0, 0, 0, 0.04)',
+            }}
+          >
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+              <circle
+                cx="12"
+                cy="12"
+                r="8.5"
+                stroke={cursorEffectEnabled ? '#CBEA30' : (isDark ? '#94A3B8' : '#64748B')}
+                strokeWidth="2"
+                strokeDasharray={cursorEffectEnabled ? 'none' : '3 2'}
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="2.5"
+                fill={cursorEffectEnabled ? '#CBEA30' : (isDark ? '#94A3B8' : '#64748B')}
+              />
+            </svg>
+          </button>
+
           {/* Mobile Theme Toggle */}
           <button
             type="button"
@@ -247,6 +340,24 @@ export function Navbar({ theme, toggleTheme, language, setLanguage, t }: NavbarP
               {link.label}
             </a>
           ))}
+
+          {/* Mobile menu cursor effect toggle item */}
+          <div className="pt-2 mt-2 border-t border-[#CBEA30]/20 flex items-center justify-between px-3 py-2 text-sm font-semibold">
+            <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>Cursor Ring Effect</span>
+            <button
+              type="button"
+              onClick={toggleCursorEffect}
+              className={`px-3 py-1 text-xs font-bold rounded-lg border-2 transition-all ${
+                cursorEffectEnabled
+                  ? 'border-[#CBEA30] bg-[#CBEA30] text-[#0B0F17]'
+                  : isDark
+                  ? 'border-slate-700 text-slate-400 bg-transparent'
+                  : 'border-slate-300 text-slate-600 bg-transparent'
+              }`}
+            >
+              {cursorEffectEnabled ? 'ON' : 'OFF'}
+            </button>
+          </div>
         </div>
       )}
     </header>
